@@ -1,0 +1,9 @@
+{
+    "default": {
+      "username": "root",
+      "password": "Clmmtt123",
+      "database": "angular98",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    }
+  }
