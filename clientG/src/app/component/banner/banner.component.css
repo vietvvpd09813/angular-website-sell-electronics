@@ -1,0 +1,47 @@
+.boxg {
+  font-family: Arial, sans-serif;
+
+  padding: 20px;
+  background-color: #ffff;
+
+  position: relative;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+margin: auto ;
+
+  padding-top: 20px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: calc(100% * 10/11); /* 6 sản phẩm */
+}
+
+.carousel-item {
+  min-width: 20%; /* 4 sản phẩm hiển thị */
+  box-sizing: border-box;
+  padding: 10px;
+  text-align: center;
+  background-color: white;
+  border: 3px solid rgba(0, 0, 0, 0.521);
+  border-radius: 5px;
+  margin-right: 25px;
+  padding-bottom: 30px;
+}
+
+.carousel img {
+  max-width: 100%;
+
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Nếu bạn không cần các nút điều hướng, có thể bỏ qua phần này */
+
+
+

@@ -1,0 +1,49 @@
+<a routerLink="../addproduct" class="px-5 py-2.5 rounded-lg text-white text-sm tracking-wider font-medium border border-current outline-none bg-blue-700 hover:bg-blue-800 active:bg-blue-700 inline-block">
+  Thêm sản phẩm
+</a>
+
+<table class="min-w-full divide-y divide-gray-200">
+  <thead>
+    <tr>
+      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">iD</th>
+      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tên sản phẩm</th>
+
+      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Giá sản phẩm</th>
+      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Hình ảnh</th>
+      <!-- <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Danh mục</th> -->
+      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Hành động</th>
+    </tr>
+  </thead>
+  <tbody class="bg-white divide-y divide-gray-200">
+    <tr *ngFor="let item of products.data">
+      <td class="px-6 py-4 whitespace-nowrap">{{ item.id }}</td>
+      <td class="px-6 py-4 whitespace-nowrap">{{ item.name }}</td>
+      <td class="px-6 py-4 whitespace-nowrap">
+
+        {{ item.price | number:'1.0-0' }}
+        <span class="text-lg font-semibold">vnd</span>
+      </td>
+
+
+      <td class="px-6 py-4 whitespace-nowrap">
+        <!-- Hiển thị hình ảnh -->
+        <img [src]="item.image1" alt="{{ item.name }}" class="w-16 h-16 object-cover rounded-md" />
+      </td>
+
+
+      <td class="px-6 py-4 whitespace-nowrap">
+        <!-- Nút Edit (Hiện tại không làm gì, bạn có thể thêm logic sau) -->
+        <button
+        [routerLink]="['../editproduct', item.id]"
+        class="px-4 py-2 font-medium text-white bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:shadow-outline-blue active:bg-blue-600 transition duration-150 ease-in-out">
+        Sửa
+      </button>
+
+        <!-- Nút Delete -->
+        <button (click)="deleteProduct(item.id)" class="ml-2 px-4 py-2 font-medium text-white bg-red-600 rounded-md hover:bg-red-500 focus:outline-none focus:shadow-outline-red active:bg-red-600 transition duration-150 ease-in-out">
+          Xoá
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

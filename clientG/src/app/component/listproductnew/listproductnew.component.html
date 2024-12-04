@@ -1,0 +1,18 @@
+<div class="box">
+  <div class="font-[sans-serif] bg-gray-100">
+    <div class="p-4 mx-auto lg:max-w-7xl sm:max-w-full">
+      <h1 class="text-3xl font-bold text-center text-gray-800 mb-4">
+        SẢN PHẨM MỚI
+      </h1>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-xl:gap-4 gap-6">
+        <app-productnew
+        *ngFor="let item of list2"
+                       [price]="item.price"
+                       [image1]="item.image1"
+                       [name]="item.name"></app-productnew>
+      </div>
+    </div>
+  </div>
+</div>
+

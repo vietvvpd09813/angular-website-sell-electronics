@@ -1,0 +1,166 @@
+<div class="lkk12">
+  <div class="container">
+
+    <!-- Forgot Password Section -->
+    <div id="ppass" class="p-pass">
+      <h2 class="title">Forgot password</h2>
+      <div class="input-field">
+        <i class='bx bxs-envelope'></i>
+        <input type="text" placeholder="Email">
+      </div>
+      <div class="tk">
+        <input type="submit" value="Submit" class="btn">
+        <input id="returnt" type="submit" value="Return" class="btn">
+      </div>
+    </div>
+
+    <!-- Sign In / Sign Up Forms -->
+    <div class="signin-signup">
+      <!-- Login Form -->
+      <form [formGroup]="formLoginGroup" (ngSubmit)="login()" class="sign-in-form">
+        <h2 class="title">Login</h2>
+
+        <!-- Email Input -->
+        <div class="input-field">
+          <i class='bx bxs-user-circle'></i>
+          <input
+            formControlName="emailControl"
+            type="email"
+            placeholder="Email"
+            [ngClass]="{'error': formLoginGroup.controls['emailControl'].invalid && formLoginGroup.controls['emailControl'].touched}">
+        </div>
+        <!-- Email Validation Errors -->
+        <div *ngIf="formLoginGroup.controls['emailControl'].invalid && formLoginGroup.controls['emailControl'].touched">
+          <label *ngIf="formLoginGroup.controls['emailControl'].errors?.['required']" class="error-label">Vui lòng nhập email !!</label>
+          <label *ngIf="formLoginGroup.controls['emailControl'].errors?.['minlength']" class="error-label">Email không hợp lệ !!</label>
+          <label *ngIf="formLoginGroup.controls['emailControl'].errors?.['email']" class="error-label">Email không đúng định dạng !!</label>
+        </div>
+
+        <!-- Password Input -->
+        <div class="input-field">
+          <i class='bx bxs-key'></i>
+          <input
+            formControlName="passwordControl"
+            type="password"
+            placeholder="Mật khẩu"
+            [ngClass]="{'error': formLoginGroup.controls['passwordControl'].invalid && formLoginGroup.controls['passwordControl'].touched}">
+        </div>
+        <!-- Password Validation Errors -->
+        <div *ngIf="formLoginGroup.controls['passwordControl'].invalid && formLoginGroup.controls['passwordControl'].touched">
+          <label *ngIf="formLoginGroup.controls['passwordControl'].errors?.['required']" class="error-label">Vui lòng nhập mật khẩu !!</label>
+          <label *ngIf="formLoginGroup.controls['passwordControl'].errors?.['minlength']" class="error-label">Mật khẩu phải có ít nhất 6 ký tự !!</label>
+        </div>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Login" class="btn" [disabled]="formLoginGroup.invalid">
+
+        <p class="social-text">Hoặc đăng nhập bằng</p>
+        <div class="social-media">
+          <a href="#" class="social-icon"><i class='bx bxl-facebook-circle'></i></a>
+          <a href="#" class="social-icon"><i class='bx bxl-twitter'></i></a>
+          <a href="#" class="social-icon"><i class='bx bxl-instagram-alt'></i></a>
+          <a href="#" class="social-icon"><i class='bx bxl-google'></i></a>
+        </div>
+      </form>
+
+      <!-- Register Form (Optional) -->
+      <form [formGroup]="formRegisterGroup" (ngSubmit)="register()" class="sign-up-form">
+        <h2 class="title">Register</h2>
+
+        <!-- Email Input -->
+        <div class="input-field">
+          <i class='bx bxs-envelope'></i>
+          <input
+            formControlName="emailControl1"
+            type="email"
+            placeholder="Email"
+            [ngClass]="{'error': formRegisterGroup.controls['emailControl1'].invalid && formRegisterGroup.controls['emailControl1'].touched}">
+        </div>
+        <!-- Email Validation Errors -->
+        <div *ngIf="formRegisterGroup.controls['emailControl1'].invalid && formRegisterGroup.controls['emailControl1'].touched">
+          <label *ngIf="formRegisterGroup.controls['emailControl1'].errors?.['required']" class="error-label">Vui lòng nhập email !!</label>
+          <label *ngIf="formRegisterGroup.controls['emailControl1'].errors?.['email']" class="error-label">Email không đúng định dạng !!</label>
+        </div>
+
+        <!-- Username Input -->
+        <div class="input-field">
+          <i class='bx bxs-user-circle'></i>
+          <input
+
+            formControlName="usernameControl1"
+            type="text"
+            placeholder="Username1"
+            [ngClass]="{'error': formRegisterGroup.controls['usernameControl1'].invalid && formRegisterGroup.controls['usernameControl1'].touched}">
+        </div>
+        <!-- Username Validation Errors -->
+        <div *ngIf="formRegisterGroup.controls['usernameControl1'].invalid && formRegisterGroup.controls['usernameControl1'].touched">
+          <label *ngIf="formRegisterGroup.controls['usernameControl1'].errors?.['required']" class="error-label">Vui lòng nhập tên người dùng !!</label>
+        </div>
+
+        <!-- Password Input -->
+        <div class="input-field">
+          <i class='bx bxs-key'></i>
+          <input
+            formControlName="passwordControl1"
+            type="password"
+            placeholder="Password"
+            [ngClass]="{'error': formRegisterGroup.controls['passwordControl1'].invalid && formRegisterGroup.controls['passwordControl1'].touched}">
+        </div>
+        <!-- Password Validation Errors -->
+        <div *ngIf="formRegisterGroup.controls['passwordControl1'].invalid && formRegisterGroup.controls['passwordControl1'].touched">
+          <label *ngIf="formRegisterGroup.controls['passwordControl1'].errors?.['required']" class="error-label">Vui lòng nhập mật khẩu !!</label>
+          <label *ngIf="formRegisterGroup.controls['passwordControl1'].errors?.['minlength']" class="error-label">Mật khẩu phải có ít nhất 6 ký tự !!</label>
+        </div>
+
+        <!-- Confirm Password Input -->
+        <div class="input-field">
+          <i class='bx bxs-key'></i>
+          <input
+            formControlName="confirmPasswordControl1"
+            type="password"
+            placeholder="Confirm Password"
+            [ngClass]="{'error': formRegisterGroup.controls['confirmPasswordControl1'].invalid && formRegisterGroup.controls['confirmPasswordControl1'].touched}">
+        </div>
+        <!-- Confirm Password Validation Errors -->
+        <div *ngIf="formRegisterGroup.controls['confirmPasswordControl1'].invalid && formRegisterGroup.controls['confirmPasswordControl1'].touched">
+          <label *ngIf="formRegisterGroup.controls['confirmPasswordControl1'].errors?.['required']" class="error-label">Vui lòng xác nhận mật khẩu !!</label>
+          <label *ngIf="formRegisterGroup.controls['confirmPasswordControl1'].errors?.['mismatch']" class="error-label">Mật khẩu không khớp !!</label>
+        </div>
+
+        <input type="submit" value="Sign Up" class="btn" >
+
+        <p class="social-text">Hoặc đăng ký qua mạng xã hội</p>
+        <div class="social-media">
+          <a href="#" class="social-icon"><i class='bx bxl-facebook-circle'></i></a>
+          <a href="#" class="social-icon"><i class='bx bxl-twitter'></i></a>
+          <a href="#" class="social-icon"><i class='bx bxl-instagram-alt'></i></a>
+          <a href="#" class="social-icon"><i class='bx bxl-google'></i></a>
+        </div>
+      </form>
+
+
+    </div>
+
+    <!-- Panels (Optional) -->
+    <div class="panels-container">
+      <div class="panel left-panel">
+        <div class="content">
+          <h3>WELCOME BACK!</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <button class="btn" id="sign-in-btn">Sign In</button>
+        </div>
+        <img style="height: 200px;width: 200px" src="https://i0.wp.com/phocode.com/wp-content/uploads/2017/01/logoAngularjs.png?fit=300%2C300&ssl=1" alt="Login Illustration" class="image">
+      </div>
+
+      <div class="panel right-panel">
+        <div class="content">
+          <h3>JOIN US!</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <button class="btn" id="sign-up-btn">Sign Up</button>
+        </div>
+        <img style="height: 200px;width: 200px" src="https://i0.wp.com/phocode.com/wp-content/uploads/2017/01/logoAngularjs.png?fit=300%2C300&ssl=1" alt="Register Illustration" class="image">
+      </div>
+    </div>
+
+  </div>
+</div>

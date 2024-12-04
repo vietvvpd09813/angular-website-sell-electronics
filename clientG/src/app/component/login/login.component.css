@@ -1,0 +1,303 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+.lkk12{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+ background: #3e3e3f;
+  background-size: cover;
+
+}
+.container{
+  position: relative;
+  width: 70vw;
+  height: 90vh;
+ background: #3e3e3f;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px 0 rgb(0, 0, 0, 0.3), 0 6px 20px 0 rgb(0, 0, 0, 0.3);
+  overflow: hidden;
+
+}
+.container::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /* background: linear-gradient(-45deg,#df4adf,#520585); */
+  /* background: linear-gradient(-45deg,#191616,#353332); */
+  background-color: black;
+  z-index: 6;
+  left: -50%;
+  transform: translateX(100%);
+  transition: 0.6s ease-in-out;
+}
+.signin-signup{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 5;
+}
+form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 40%;
+  min-width: 238px;
+  padding: 0 10px;
+}
+form .sign-in-form{
+  opacity: 1;
+  transition: 0.5s ease-in-out;
+  transition-delay: 1s;
+  position: relative;
+}
+.p-pass{
+  width: 50%;
+  height: 100%;
+  background: #3e3e3f;
+
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  padding: 15% 5%;
+  display: none;
+}
+.lissi{
+ display: block;
+}
+.p-pass .title{
+  margin-bottom: 10%;
+}
+.tk{
+  display: flex;
+  justify-content: space-between;
+}
+.tk input{
+  width: 170px;
+}
+
+
+
+
+form .sign-up-form{
+  opacity: 1;
+  transition: 0.5s ease-in-out;
+  transition-delay: 1s;
+}
+
+.title{
+  font-size: 35px;
+  /* color: #df4adf; */
+  color:white;
+  margin-bottom: 10px;
+}
+.input-field{
+  width: 100%;
+  height: 50px;
+  background: #e8f0fe;
+
+  margin: 10px 0;
+  border: 2px solid white;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+}
+.input-field i{
+  flex:1;
+  text-align: center;
+  color: black;
+  font-size: 22px;
+}
+.input-field input{
+  flex: 5;
+  background: none;
+  outline: none;
+  border: none;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  color: black;
+
+
+}
+.btn{
+  width: 150px;
+  height: 50px;
+  border: none;
+  border-radius: 50px;
+ border: 2px solid white;
+   background: #000000c3;
+  color: #fff;
+  font-weight: 600;
+  margin: 10px 0;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+/* Lớp CSS cho viền đỏ khi có lỗi */
+input.error {
+  border: 2px solid red;
+}
+
+.error-label {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.btn:hover{
+  background-color: #7c7777;
+  transition: 0.5s;
+}
+.social-text{
+  margin: 10px 0 15px 0;
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+}
+.social-text:hover{
+  color: red;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.social-media{
+  display: flex;
+  justify-content: center;
+}
+.social-icon{
+  height: 45px;
+  width: 45px;
+  display: flex;
+  font-size: 22px;
+  justify-content: center;
+  align-items: center;
+  color:white;
+  border: 2px solid white;
+  border-radius: 50px;
+  margin: 0 5px;
+}
+a{
+  text-decoration: none;
+}
+.social-icon:hover{
+  animation: rotate-center 0.6s ease-in-out both;
+
+}
+
+
+@keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.panels-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.panel{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 35%;
+  min-width: 238px;
+  padding: 0 10px;
+  text-align: center;
+  z-index: 6;
+
+}
+.left-panel{
+  pointer-events: none;
+}
+.content{
+  color: white;
+  transition: 0.5s ease-in-out;
+  transition-delay: 0.2s;
+
+}
+.kk{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.panel h3{
+  font-size: 24px;
+  font-weight: 600;
+}
+.panel p{
+  font-size: 15px;
+  padding: 10px 0;
+
+}
+.image{
+  width: 100%;
+  transition: 0.5s ease-in-out;
+  transition-delay: 0.1s;
+
+
+}
+.left-panel .image,
+.left-panel .content{
+  transform: translateX(-200%);
+}
+
+.right-panel .image,
+.right-panel .content{
+  transform: translateX(0);
+}
+.container.sign-up-mode::before{
+  transform: translateX(0);
+}
+.container.sign-up-mode .right-panel .image,
+.container.sign-up-mode .right-panel .content{
+  transform: translateX(200%);
+}
+.container.sign-up-mode .left-panel .image,
+.container.sign-up-mode .left-panel .content{
+  transform: translateX(0);
+}
+.container.sign-up-mode form .sign-in-form{
+
+  opacity: 0;
+}
+.container.sign-up-mode form .sign-up-form{
+
+  opacity: 1;
+}
+.container.sign-up-mode  .right-panel{
+pointer-events: none;
+}
+.container.sign-up-mode  .left-panel{
+  pointer-events: all;
+ }
+

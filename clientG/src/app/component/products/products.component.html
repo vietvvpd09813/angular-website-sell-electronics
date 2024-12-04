@@ -1,0 +1,19 @@
+<!-- Tiêu đề sản phẩm -->
+<h1 class="text-4xl font-extrabold text-gray-800 text-center mb-12">SẢN PHẨM</h1>
+
+<!-- Danh sách sản phẩm -->
+<div id="jk" class="font-sans py-4 mx-auto lg:max-w-6xl md:max-w-4xl max-sm:max-w-md">
+
+  <h2 class="text-4xl font-extrabold text-gray-800 text-center mb-12">hello</h2>
+
+  <!-- Grid sản phẩm -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-6 gap-12">
+    <app-products-item
+      *ngFor="let item of products"
+      [price]="item.price"
+      [id]="item.id"
+      [image1]="item.image1"
+      [name]="item.name">
+    </app-products-item>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<form class="font-[sans-serif] m-6 max-w-4xl mx-auto" (ngSubmit)="updateCategory()">
+  <div class="grid sm:grid-cols-2 gap-10">
+    <!-- Tên danh mục -->
+    <div class="relative flex flex-col">
+      <label for="category-name" class="text-[13px] bg-white text-black absolute px-2 top-[-10px] left-[18px]">Tên danh mục</label>
+      <input
+        id="category-name"
+        type="text"
+        [(ngModel)]="name"
+        name="name"
+        placeholder="Nhập tên danh mục"
+        class="px-4 py-3.5 bg-white text-black w-full text-sm border-2 border-gray-100 focus:border-blue-500 rounded outline-none transition-all focus:ring-2 focus:ring-blue-500"
+        required
+      />
+    </div>
+
+    <!-- Hình ảnh (URL) -->
+    <div class="relative flex flex-col">
+      <label for="category-image" class="text-[13px] bg-white text-black absolute px-2 top-[-10px] left-[18px]">URL hình ảnh</label>
+      <input
+        id="category-image"
+        type="url"
+        [(ngModel)]="image"
+        name="image"
+        placeholder="Nhập URL hình ảnh"
+        class="px-4 py-3.5 bg-white text-black w-full text-sm border-2 border-gray-100 focus:border-blue-500 rounded outline-none transition-all focus:ring-2 focus:ring-blue-500"
+        required
+      />
+      <p class="mt-2 text-xs text-gray-500">Nhập URL hình ảnh cho danh mục</p>
+    </div>
+  </div>
+
+  <!-- Lỗi thông báo (nếu có) -->
+  <div *ngIf="errorMessage" class="mt-4 text-red-500 text-sm">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Submit button -->
+  <button
+    type="submit"
+    class="mt-8 px-6 py-2.5 w-full text-sm bg-blue-500 text-white rounded hover:bg-blue-600 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
+    [disabled]="isLoading || !name || !image"
+  >
+    Cập nhật danh mục
+  </button>
+</form>

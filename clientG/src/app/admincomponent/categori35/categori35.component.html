@@ -1,0 +1,54 @@
+<div class="text-gray-900 bg-gray-200">
+  <div class="p-4 flex">
+      <h1 class="text-3xl">Danh sách sản phẩm</h1>
+  </div>
+
+  <!-- Nút thêm sản phẩm -->
+  <div class="px-3 py-4 flex justify-start">
+      <a routerLink="../lab34add"
+         class="px-5 py-2.5 rounded-lg text-white text-sm tracking-wider font-medium border border-current outline-none bg-blue-700 hover:bg-blue-800 active:bg-blue-700 inline-block">
+          Thêm sản phẩm
+      </a>
+  </div>
+
+  <!-- Bảng danh sách sản phẩm -->
+  <div class="px-3 py-4 flex justify-center">
+      <table class="w-full text-md bg-white shadow-md rounded mb-4">
+          <thead>
+              <tr class="border-b">
+                <th class="text-left p-3 px-5">ID</th>
+                  <th class="text-left p-3 px-5">Tên sản phẩm</th>
+
+                  <th></th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let item of products.data" class="border-b hover:bg-orange-100 bg-gray-100">
+                <td class="p-3 px-5">
+                  <input type="text" [value]="item.id" class="bg-transparent border-b-2 border-gray-300 py-2" disabled>
+              </td>
+                  <!-- Tên sản phẩm -->
+                  <td class="p-3 px-5">
+                      <input type="text" [value]="item.name" class="bg-transparent border-b-2 border-gray-300 py-2" disabled>
+                  </td>
+
+                  <!-- Danh mục -->
+
+                  <!-- Nút sửa và xoá -->
+                  <td class="p-3 px-5 flex justify-end">
+                      <!-- Nút Sửa -->
+                      <button [routerLink]="['/lab34edit', item.id]"
+                          class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
+                          Sửa
+                      </button>
+                      <!-- Nút Xoá -->
+                      <button (click)="deleteProduct(item.id)"
+                          class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
+                          Xoá
+                      </button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+
+  /* Hiện thị form và lớp phủ */
+  #addProductBtn:focus ~ #addProductForm,
+  #addProductBtn:focus ~ #overlay {
+      display: flex;
+  }
+
+  #overlay {
+      display: none;
+  }
+
+  #addProductForm:target {
+      display: flex;
+  }
+
+  #formContainer {
+      animation: scaleIn 0.3s forwards;
+  }
+
+  @keyframes scaleIn {
+      from {
+          transform: scale(0);
+      }
+      to {
+          transform: scale(1);
+      }
+  }

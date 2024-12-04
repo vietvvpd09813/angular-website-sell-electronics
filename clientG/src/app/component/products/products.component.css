@@ -1,0 +1,31 @@
+#dropdownMenu{
+  width: 300px;
+}
+#dropdownToggle{
+  width: 300px;
+}
+#dropdownMenu.hidden {
+  display: none;
+}
+#dropdownMenu.block {
+  display: block;
+}
+#kjl{
+  float: right;
+  margin-top: 100px;
+  margin-right: 50px;
+
+}
+h2{
+  margin-top: 100px;
+  color: #ffff;
+}
+H1{
+  float: left;
+margin-top: 100px;
+  margin-left: 500px;
+}
+#jk{
+  margin-bottom: 100px;
+}
+

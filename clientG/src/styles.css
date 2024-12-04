@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.active{
+  background-color: red;
+}
+#block1{
+  display: none;
+}
+/* CSS Code */
+.swiper-wrapper {
+  width: 100%;
+  height: max-content !important;
+  padding-bottom: 64px !important;
+  -webkit-transition-timing-function: linear !important;
+  transition-timing-function: linear !important;
+  position: relative;
+  }
+  .swiper-pagination-bullet {
+  background: #4f46e5;
+  }
+
+  .slider {
+      position: relative;
+      height: 400px; /* Điều chỉnh chiều cao theo nhu cầu */
+  }
+  .slider img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }

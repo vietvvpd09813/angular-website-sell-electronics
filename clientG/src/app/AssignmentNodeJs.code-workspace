@@ -1,0 +1,40 @@
+{
+	"folders": [
+		{
+			"path": "C:/Users/ADMIN/Downloads/AssignmentNodeJs"
+		},
+		{
+			"path": "../../../../newjs"
+		},
+		{
+			"path": "../../../../js nâng cao"
+		},
+		{
+			"path": "../../../../js nâng cao/v-smart"
+		},
+		{
+			"path": "../../../../typeScrip"
+		},
+		{
+			"path": "../../../../matchinggame"
+		},
+		{
+			"path": "../../../../ACMscrip"
+		},
+		{
+			"path": "../../../../ASM-ASMEscrip"
+		},
+		{
+			"path": "../../../../lab-nodeJs-end"
+		},
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "../../../../react-js"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "js nâng cao"
+	}
+}

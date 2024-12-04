@@ -1,0 +1,28 @@
+
+<a   >
+  <div class="bg-gray-100 p-3 rounded-lg group overflow-hidden cursor-pointer relative z-50 hover:before:bg-black before:absolute before:inset-0 before:opacity-20 before:transition-all">
+    <div class="w-full h-[300px] overflow-hidden mx-auto aspect-w-16 aspect-h-8">
+      <img src="{{image1}}" alt="product1"
+        class="h-full w-full object-contain" />
+      <span class="absolute top-2 left-2 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded">NEW</span>
+    </div>
+
+    <div class="absolute mx-auto left-0 right-0 -bottom-80 group-hover:bottom-2 bg-white w-11/12 p-3 rounded-lg transition-all duration-300">
+      <div class="text-center">
+        <h3 class="text-base font-bold text-gray-800">{{name}}</h3>
+        <h4 class="text-lg text-blue-600 font-bold mt-2"><p>{{ price | currency: 'VND' }}</p></h4>
+      </div>
+
+      <span class="font-bold text-lg"></span>
+
+      <!-- Buy Button -->
+      <div class="mt-4">
+        <button  class="w-full bg-blue-600 text-white font-bold py-2 rounded hover:bg-blue-700 transition duration-200">
+          Mua
+        </button>
+
+      </div>
+    </div>
+  </div>
+</a>
+

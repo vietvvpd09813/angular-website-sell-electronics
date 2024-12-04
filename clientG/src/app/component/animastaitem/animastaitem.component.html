@@ -1,0 +1,33 @@
+<li class="transition-transform transform hover:scale-105 duration-300">
+  <a href="#" class="block overflow-hidden rounded-lg border border-gray-200 shadow-lg hover:shadow-xl">
+    <div class="bg-white rounded-lg overflow-hidden shadow-lg ring-4 ring-gray-800 ring-opacity-40 max-w-sm">
+      <!-- Hình ảnh sản phẩm -->
+      <div class="relative h-64 w-full overflow-hidden">
+        <img
+          src="{{image1}}"
+          alt="{{name}}"
+          class="w-full h-100 object-cover transition-transform duration-300 group-hover:scale-95"
+        />
+        <!-- Đoạn SALE (nếu có) -->
+      </div>
+
+      <!-- Nội dung sản phẩm -->
+      <div class="p-4">
+        <!-- Tên sản phẩm -->
+        <h3 class="text-lg font-medium text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors duration-300">
+          {{name}}
+        </h3>
+
+        <!-- Giá sản phẩm -->
+        <p class="text-lg font-medium text-gray-800 mb-4">{{price}}</p>
+
+        <!-- Nút "Thêm vào giỏ" -->
+        <div class="flex items-center justify-between">
+          <button class="w-full bg-yellow-500 text-white rounded-md py-2 font-semibold hover:bg-yellow-600 transition duration-300">
+            Thêm vào giỏ
+          </button>
+        </div>
+      </div>
+    </div>
+  </a>
+</li>

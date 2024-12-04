@@ -1,0 +1,19 @@
+#overlay {
+  display: none; /* Ẩn lớp phủ mặc định */
+}
+#editUserForm {
+  display: none; /* Ẩn form mặc định */
+}
+#editFormContainer {
+  animation: fadeInScale 0.3s forwards;
+}
+@keyframes fadeInScale {
+  from {
+      transform: scale(0);
+      opacity: 0;
+  }
+  to {
+      transform: scale(1);
+      opacity: 1;
+  }
+}

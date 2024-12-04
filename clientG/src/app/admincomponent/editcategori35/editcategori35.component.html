@@ -1,0 +1,116 @@
+<div class="max-w-3xl mx-auto mt-10">
+  <h2 class="text-2xl font-semibold mb-6">Cập nhật sản phẩm</h2>
+
+  <form [formGroup]="productForm" (ngSubmit)="updateProduct()" class="space-y-6">
+    <!-- Tên sản phẩm -->
+    <div class="flex flex-col">
+      <label for="product-name" class="text-sm font-semibold text-gray-700 mb-2">Tên sản phẩm</label>
+      <input
+        id="product-name"
+        formControlName="name"
+        type="text"
+        class="px-4 py-3 border-2 border-gray-300 rounded-md w-full"
+        required
+        placeholder="Nhập tên sản phẩm"
+        title="Tên sản phẩm"
+      />
+    </div>
+
+    <!-- Giá sản phẩm (ẩn và để trống) -->
+    <div class="flex flex-col" style="display: none;">
+      <label for="product-price" class="text-sm font-semibold text-gray-700 mb-2">Giá sản phẩm</label>
+      <input
+        id="product-price"
+        formControlName="price"
+        type="number"
+        class="px-4 py-3 border-2 border-gray-300 rounded-md w-full"
+        [value]="null"
+        placeholder="Nhập giá sản phẩm"
+        title="Giá sản phẩm"
+      />
+    </div>
+
+    <!-- Mô tả sản phẩm (ẩn và để trống) -->
+    <div class="flex flex-col" style="display: none;">
+      <label for="product-description" class="text-sm font-semibold text-gray-700 mb-2">Mô tả sản phẩm</label>
+      <textarea
+        id="product-description"
+        formControlName="description"
+        class="px-4 py-3 border-2 border-gray-300 rounded-md w-full"
+        [value]="null"
+        placeholder="Nhập mô tả sản phẩm"
+        title="Mô tả sản phẩm"
+      ></textarea>
+    </div>
+
+    <!-- Danh mục sản phẩm (ẩn và để trống) -->
+    <div class="flex flex-col" style="display: none;">
+      <label for="product-category" class="text-sm font-semibold text-gray-700 mb-2">Danh mục sản phẩm</label>
+      <input
+        id="category-1"
+        formControlName="categoryId"
+        type="hidden"
+        class="px-4 py-3 border-2 border-gray-300 rounded-md w-full"
+        required
+      />
+      <input
+        type="text"
+        formControlName="categoryName"
+        name="categoryName"
+        class="px-4 py-3 border-2 border-gray-300 rounded-md w-full"
+        required
+        [value]="null"
+      />
+    </div>
+
+    <!-- Hình ảnh sản phẩm (ẩn và để trống) -->
+    <div class="flex flex-col" style="display: none;">
+      <label for="image-1" class="text-sm font-semibold text-gray-700 mb-2">Hình ảnh 1 (URL)</label>
+      <input
+        id="image-1"
+        formControlName="image1"
+        type="text"
+        class="px-4 py-3 border-2 border-gray-300 rounded-md w-full"
+        [value]="null"
+        placeholder="Nhập URL hình ảnh 1"
+        title="Hình ảnh 1"
+      />
+    </div>
+
+    <div class="flex flex-col" style="display: none;">
+      <label for="image-2" class="text-sm font-semibold text-gray-700 mb-2">Hình ảnh 2 (URL)</label>
+      <input
+        id="image-2"
+        formControlName="image2"
+        type="text"
+        class="px-4 py-3 border-2 border-gray-300 rounded-md w-full"
+        [value]="null"
+        placeholder="Nhập URL hình ảnh 2"
+        title="Hình ảnh 2"
+      />
+    </div>
+
+    <div class="flex flex-col" style="display: none;">
+      <label for="image-3" class="text-sm font-semibold text-gray-700 mb-2">Hình ảnh 3 (URL)</label>
+      <input
+        id="image-3"
+        formControlName="image3"
+        type="text"
+        class="px-4 py-3 border-2 border-gray-300 rounded-md w-full"
+        [value]="null"
+        placeholder="Nhập URL hình ảnh 3"
+        title="Hình ảnh 3"
+      />
+    </div>
+
+    <!-- Nút submit -->
+    <div class="flex space-x-4 mt-6">
+      <button type="submit" class="px-6 py-3 bg-blue-600 text-white rounded-md w-full" [disabled]="!productForm.valid">
+        Cập nhật
+      </button>
+      <button type="button" (click)="cancel()" class="px-6 py-3 bg-gray-600 text-white rounded-md w-full">
+        Hủy
+      </button>
+    </div>
+  </form>
+</div>

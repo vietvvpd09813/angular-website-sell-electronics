@@ -1,0 +1,100 @@
+<form class="font-[sans-serif] m-6 max-w-2xl mx-auto shadow-lg p-6 bg-white rounded-lg" #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
+  <div class="grid sm:grid-cols-2 gap-6">
+
+    <!-- Tên sản phẩm -->
+    <div class="relative flex flex-col">
+      <label class="text-sm font-semibold text-gray-700 mb-2">Tên sản phẩm</label>
+      <input
+        type="text"
+        placeholder="Nhập tên sản phẩm"
+        name="name"
+        ngModel
+        class="px-4 py-3 bg-white text-gray-700 w-full text-sm border-2 border-gray-300 focus:border-blue-500 rounded-md focus:outline-none transition-all duration-200"
+        required
+      />
+    </div>
+
+    <!-- Các trường ẩn đi, xử lý mặc định trong TS -->
+    <!-- Giá sản phẩm - Ẩn đi -->
+    <div *ngIf="false">
+      <label class="text-sm font-semibold text-gray-700 mb-2">Giá sản phẩm</label>
+      <input
+        type="number"
+        placeholder="Nhập giá sản phẩm"
+        name="price"
+        ngModel
+        class="px-4 py-3 bg-white text-gray-700 w-full text-sm border-2 border-gray-300 focus:border-blue-500 rounded-md focus:outline-none transition-all duration-200"
+      />
+    </div>
+
+    <!-- Mô tả sản phẩm - Ẩn đi -->
+    <div *ngIf="false">
+      <label class="text-sm font-semibold text-gray-700 mb-2">Mô tả sản phẩm</label>
+      <textarea
+        placeholder="Nhập mô tả sản phẩm"
+        name="description"
+        ngModel
+        class="px-4 py-3 bg-white text-gray-700 w-full text-sm border-2 border-gray-300 focus:border-blue-500 rounded-md focus:outline-none transition-all duration-200"
+      ></textarea>
+    </div>
+
+    <!-- Danh mục sản phẩm - Ẩn đi -->
+    <div *ngIf="false">
+      <label class="text-sm font-semibold text-gray-700 mb-2">Danh mục sản phẩm</label>
+      <select
+        name="categoryId"
+        ngModel
+        class="px-4 py-3 bg-white text-gray-700 w-full text-sm border-2 border-gray-300 focus:border-blue-500 rounded-md focus:outline-none transition-all duration-200"
+      >
+        <option value="">Chọn danh mục</option>
+        <option *ngFor="let item of categories" [value]="item.id">
+          {{ item.name }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Hình ảnh sản phẩm - Ẩn đi -->
+    <div *ngIf="false">
+      <div class="flex flex-col w-full">
+        <label class="text-sm font-semibold text-gray-700 mb-2">Hình ảnh 1 (URL)</label>
+        <input
+          type="text"
+          placeholder="Nhập URL hình ảnh 1"
+          name="image1"
+          ngModel
+          class="px-4 py-3 bg-white text-gray-700 w-full text-sm border-2 border-gray-300 focus:border-blue-500 rounded-md focus:outline-none transition-all duration-200"
+        />
+      </div>
+
+      <div class="flex flex-col w-full">
+        <label class="text-sm font-semibold text-gray-700 mb-2">Hình ảnh 2 (URL)</label>
+        <input
+          type="text"
+          placeholder="Nhập URL hình ảnh 2"
+          name="image2"
+          ngModel
+          class="px-4 py-3 bg-white text-gray-700 w-full text-sm border-2 border-gray-300 focus:border-blue-500 rounded-md focus:outline-none transition-all duration-200"
+        />
+      </div>
+
+      <div class="flex flex-col w-full">
+        <label class="text-sm font-semibold text-gray-700 mb-2">Hình ảnh 3 (URL)</label>
+        <input
+          type="text"
+          placeholder="Nhập URL hình ảnh 3"
+          name="image3"
+          ngModel
+          class="px-4 py-3 bg-white text-gray-700 w-full text-sm border-2 border-gray-300 focus:border-blue-500 rounded-md focus:outline-none transition-all duration-200"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- Nút gửi form -->
+  <button
+    type="submit"
+    class="mt-6 px-6 py-3 w-full text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200"
+  >
+    Thêm sản phẩm
+  </button>
+</form>

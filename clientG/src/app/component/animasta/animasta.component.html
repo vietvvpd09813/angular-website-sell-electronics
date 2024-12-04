@@ -1,0 +1,48 @@
+<section>
+  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+    <!-- Tiêu đề Section -->
+    <h1 class="text-3xl font-bold text-center text-gray-800 mb-4">
+      Tai nghe , loa
+    </h1>
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-stretch">
+      <!-- Phần mô tả sản phẩm (Phone Accessories) -->
+      <div class="grid place-content-center rounded-lg bg-gray-800 p-6 sm:p-8">
+        <div class="mx-auto max-w-md text-center lg:text-left">
+          <header>
+            <h2 class="text-2xl font-bold text-white sm:text-3xl">
+              Phụ Kiện Điện Thoại
+            </h2>
+            <p class="mt-4 text-gray-300">
+              Nâng cấp trải nghiệm sử dụng điện thoại của bạn với các phụ kiện
+              chất lượng cao! Từ ốp lưng bảo vệ, tai nghe, sạc nhanh đến các
+              loại giá đỡ tiện lợi, chúng tôi có tất cả những gì bạn cần để làm
+              cho chiếc điện thoại trở nên hoàn hảo hơn.
+              <strong>Mua ngay hôm nay</strong> để nhận các ưu đãi hấp dẫn và
+              giao hàng miễn phí!
+            </p>
+          </header>
+
+          <a
+            href="#"
+            class="mt-8 inline-block rounded-lg border border-transparent bg-white px-8 py-3 text-sm font-semibold text-gray-900 transition duration-300 hover:bg-gray-100 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+          >
+            Mua Ngay
+          </a>
+        </div>
+      </div>
+
+      <!-- Danh sách sản phẩm -->
+      <div class="lg:col-span-2 lg:py-8">
+        <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Loop through products in 'Data' -->
+          <app-animastaitem
+            *ngFor="let item of list22"
+            [price]="item.price"
+            [image1]="item.image1"
+            [name]="item.name"
+          ></app-animastaitem>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
