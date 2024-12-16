@@ -16,14 +16,14 @@ const ProductVariant = sequelize.define(
         type: DataTypes.INTEGER,
         defaultValue: 0,
       },
-      productId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: "products", // Tên bảng trong cơ sở dữ liệu
-          key: "id", // Khóa chính của bảng Product
-        },
-      },
+      // productId: {
+      //   type: DataTypes.INTEGER,
+      //   allowNull: false,
+      //   references: {
+      //     model: "products", // Tên bảng trong cơ sở dữ liệu
+      //     key: "id", // Khóa chính của bảng Product
+      //   },
+      // },
     },
     {
       timestamps: true,

@@ -1,19 +1,50 @@
-<!-- Tiêu đề sản phẩm -->
-<h1 class="text-4xl font-extrabold text-gray-800 text-center mb-12">SẢN PHẨM</h1>
+<div id="jk" class="font-sans py-6 mx-auto lg:max-w-6xl md:max-w-4xl sm:max-w-md px-4">
+  <!-- Phần tìm kiếm và danh mục -->
+  <div class="flex items-center justify-between mb-6">
+    <form (ngSubmit)="onSearch()" class="w-full">
+      <!-- Phần tìm kiếm -->
+      <div class="flex w-full md:w-2/3 gap-3">
+        <input
+          type="text"
+          placeholder="Search for the tool you like"
+          class="w-full px-4 py-2 rounded-l-lg border-2 border-sky-500 focus:outline-none focus:border-sky-500 text-sm"
+          [(ngModel)]="searchTerm"
+          name="search"
+        />
+        <button
+          type="submit"
+          class="bg-sky-500 text-white rounded-r-lg px-4 py-2 text-sm hover:bg-sky-600 transition duration-300"
+        >
+          Search
+        </button>
+      </div>
+    </form>
 
-<!-- Danh sách sản phẩm -->
-<div id="jk" class="font-sans py-4 mx-auto lg:max-w-6xl md:max-w-4xl max-sm:max-w-md">
-
-  <h2 class="text-4xl font-extrabold text-gray-800 text-center mb-12">hello</h2>
+    <!-- Phần danh mục -->
+    <div class="flex items-center space-x-2 md:space-x-4">
+      <button
+        class="category-item bg-sky-100 text-sky-600 hover:bg-sky-200 rounded-lg px-3 py-2 text-sm transition duration-300 h-100 w-[70px]"
+        (click)="filterByCategory('')">Tất cả</button>
+      <button
+        *ngFor="let category of categories"
+        class="category-item bg-sky-100 text-sky-600 hover:bg-sky-200 rounded-lg px-1 py-1 text-sm transition duration-300 h-10  w-[80px]"
+        (click)="filterByCategory(category.id)">
+        {{ category.name }}
+      </button>
+    </div>
+  </div>
 
   <!-- Grid sản phẩm -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-6 gap-12">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
     <app-products-item
-      *ngFor="let item of products"
+      *ngFor="let item of filteredProducts"
       [price]="item.price"
       [id]="item.id"
       [image1]="item.image1"
       [name]="item.name">
     </app-products-item>
+
+
   </div>
 </div>
+

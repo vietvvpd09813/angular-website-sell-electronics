@@ -1,0 +1,22 @@
+.chart-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 100px; /* Điều chỉnh chiều cao container */
+  width: 100%;
+  padding: 10px;
+}
+
+.chart-bar {
+  width: 40px;
+  background-color: #3490dc;
+  transition: height 1s ease-out;
+  height: 100%; /* Đảm bảo chiều cao của các cột có thể thay đổi động */
+}
+
+.chart-label {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #333;
+}

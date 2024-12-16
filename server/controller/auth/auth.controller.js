@@ -73,7 +73,7 @@ class ApiAuthController {
   
   
       // Xác thực Refresh Token
-      jwt.verify(refreshToken, "TuanDevRefreshToken", (err, user) => {
+      jwt.verify(refreshToken, "vietRq", (err, user) => {
         if (err) {
           return res.status(403).json({ message: "Invalid refresh token" });
         }
@@ -83,7 +83,7 @@ class ApiAuthController {
             id: user.dataValues.id,
             role: user.dataValues.role,
           },
-          "TuanDevAccessToken",
+          "vietAt",
           { expiresIn: "1h" }
         );
   

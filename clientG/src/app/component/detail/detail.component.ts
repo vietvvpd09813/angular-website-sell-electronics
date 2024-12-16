@@ -1,72 +1,83 @@
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ProductService } from './../../sevice/product.service';
 import { CartService } from './../../sevice/cart.service';
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { DetailListComponent } from '../detail-list/detail-list.component';
+import { CommentComponent } from '../comment/comment.component';
 
-// Khai báo hàm end22 từ file bên ngoài
+
 declare function end22(): void;
 
 @Component({
   selector: 'app-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, DetailListComponent, CommentComponent],
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit, AfterViewInit {
   userId: number = 0;
-  product: any = {};  // Biến lưu thông tin chi tiết sản phẩm
-  productId: number = 0;  // Biến lưu ID sản phẩm từ URL
+  product: any = {};
+  productlist: any[] = [];
+  filteredProductList: any[] = [];
+  productId: number = 0;
+  categoryId: number = 0; // Thêm thuộc tính categoryId
 
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
-    private cartService: CartService  // Inject CartService
+    private cartService: CartService
   ) { }
 
   ngOnInit(): void {
-    // Lấy ID sản phẩm từ URL
     this.route.paramMap.subscribe(params => {
-      this.productId = +params.get('id')!;  // Lấy ID từ URL và chuyển thành số
-      this.getProductDetail(this.productId);  // Lấy chi tiết sản phẩm theo ID
+      this.productId = +params.get('id')!;
+      this.getProductDetail(this.productId);
+      console.log("productId",this.productId);
+
     });
+    this.getAllProducts();
   }
 
   ngAfterViewInit(): void {
     end22();
   }
 
-  // Hàm lấy thông tin chi tiết sản phẩm từ API
+  getAllProducts(): void {
+    this.productService.getAllProducts().subscribe((response: any) => {
+      this.productlist = response.data;
+      // Lọc danh sách sản phẩm theo danh mục
+      this.filteredProductList = this.productlist.filter(product => product.categoryId === this.categoryId);
+    });
+  }
+
   getProductDetail(id: number): void {
     this.productService.getProductById(id).subscribe(
       (response) => {
         this.product = response.data;
-        console.log(this.product);  // Lưu thông tin chi tiết vào biến product
+        this.categoryId = this.product.categoryId; // Lưu categoryId của sản phẩm chi tiết
       },
       (error) => {
         console.error('Error fetching product details:', error);
-        // Bạn có thể thêm logic xử lý lỗi ở đây
       }
     );
   }
 
-  // Hàm xử lý thêm sản phẩm vào giỏ hàng
   addToCart(): void {
     const userId = localStorage.getItem('userId');
     if (!userId) {
       alert("Please log in to add items to the cart.");
-      return;  // Nếu chưa đăng nhập thì thông báo và không thực hiện thao tác
+      return;
     }
     this.userId = +userId;
     const productId = this.product.id;
-    const quantity = 1;  // Giả sử mỗi lần thêm 1 sản phẩm vào giỏ
-    console.log("Adding to cart", quantity, productId, this.userId);
+    const quantity = 1;
 
     this.cartService.addToCart(this.userId, productId, quantity).subscribe(
       (response) => {
         console.log('Product added to cart', response);
-        alert("Sản phẩm đã thêm vào giỏ hàng");  // Thông báo thêm sản phẩm thành công
+        alert("Sản phẩm đã thêm vào giỏ hàng");
       },
       (error) => {
         console.error('Error adding product to cart:', error);

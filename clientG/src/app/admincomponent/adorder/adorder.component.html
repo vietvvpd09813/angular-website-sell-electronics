@@ -1,38 +1,83 @@
-<h1>order</h1>
-<table class="min-w-full divide-y divide-gray-200">
+<h1 class="text-2xl font-semibold text-gray-900 mb-6">Quản lý Đơn hàng</h1>
+
+<!-- Bảng đơn hàng -->
+<table class="min-w-full divide-y divide-gray-200 bg-gray-50 shadow-lg rounded-lg overflow-hidden">
   <thead>
-      <tr>
-          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
-          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
-      </tr>
+    <tr>
+      <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">ID</th>
+      <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">Tên</th>
+      <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">Số điện thoại</th>
+      <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">Địa chỉ</th>
+
+      <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">trạng thái</th>
+      <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">Hành động</th>
+    </tr>
   </thead>
   <tbody class="bg-white divide-y divide-gray-200">
-      <tr>
-          <td class="px-6 py-4 whitespace-nowrap">Jane Doe</td>
-          <td class="px-6 py-4 whitespace-nowrap">janeexample.com</td>
-          <td class="px-6 py-4 whitespace-nowrap">Admin</td>
-          <td class="px-6 py-4 whitespace-nowrap">
-              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
-          </td>
-          <td class="px-6 py-4 whitespace-nowrap">
-              <button class="px-4 py-2 font-medium text-white bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:shadow-outline-blue active:bg-blue-600 transition duration-150 ease-in-out">Edit</button>
-              <button class="ml-2 px-4 py-2 font-medium text-white bg-red-600 rounded-md hover:bg-red-500 focus:outline-none focus:shadow-outline-red active:bg-red-600 transition duration-150 ease-in-out">Delete</button>
-          </td>
-      </tr>
-      <tr>
-          <td class="px-6 py-4 whitespace-nowrap">John Doe</td>
-          <td class="px-6 py-4 whitespace-nowrap">johnexample.com</td>
-          <td class="px-6 py-4 whitespace-nowrap">User</td>
-          <td class="px-6 py-4 whitespace-nowrap">
-              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Inactive</span>
-          </td>
-          <td class="px-6 py-4 whitespace-nowrap">
-              <button class="px-4 py-2 font-medium text-white bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:shadow-outline-blue active:bg-blue-600 transition duration-150 ease-in-out">Edit</button>
-              <button class="ml-2 px-4 py-2 font-medium text-white bg-red-600 rounded-md hover:bg-red-500 focus:outline-none focus:shadow-outline-red active:bg-red-600 transition duration-150 ease-in-out">Delete</button>
-          </td>
-      </tr>
+    <tr *ngFor="let order of orders">
+      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ order.id }}</td>
+      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ order.fullname }}</td>
+      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ order.phone }}</td>
+      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ order.address }}</td>
+
+      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ order.status }}</td>
+      <td class="px-6 py-4 whitespace-nowrap text-sm">
+        <button (click)="showDetails(order.id)" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-500 transition">
+          Chi tiết
+        </button>
+        <button (click)="toggleUpdateForm(order.id)" class="ml-2 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-500 transition">
+          Cập nhật
+        </button>
+      </td>
+    </tr>
   </tbody>
 </table>
+
+<!-- Bảng chi tiết sản phẩm (Ẩn/Hiện và căn giữa màn hình) -->
+<div *ngIf="isDetailsVisible && selectedOrder" class="fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50">
+  <div class="bg-white p-8 rounded-lg shadow-lg max-w-3xl w-full">
+    <h2 class="text-xl font-semibold text-gray-900">Chi tiết sản phẩm</h2>
+
+    <button (click)="goBackToTable()" class="px-4 py-2 bg-gray-600 text-white rounded-md mt-4 mb-6">
+      Quay lại
+    </button>
+
+    <table class="min-w-full divide-y divide-gray-200 mt-4">
+      <thead>
+        <tr>
+          <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">Tên sản phẩm</th>
+          <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">Giá</th>
+          <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">Số lượng</th>
+          <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">Thành tiền</th>
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y divide-gray-200">
+        <tr *ngFor="let item of selectedOrder?.orderItems">
+          <td class="px-6 py-4 text-sm text-gray-900">{{ item.product.name }}</td>
+          <td class="px-6 py-4 text-sm text-gray-500">{{ item.product.price | currency:'VND':'symbol' }}</td>
+          <td class="px-6 py-4 text-sm text-gray-500">{{ item.quantity }}</td>
+          <td class="px-6 py-4 text-sm text-gray-900">{{ item.product.price * item.quantity | currency:'VND':'symbol' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Form cập nhật trạng thái đơn hàng -->
+<div *ngIf="isUpdateFormVisible && selectedOrder" class="fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50">
+  <div class="bg-white p-8 rounded-lg shadow-lg max-w-lg w-full">
+    <h2 class="text-xl font-semibold text-gray-900">Cập nhật trạng thái đơn hàng</h2>
+    <form (ngSubmit)="updateStatus(selectedOrder.id, selectedOrder.status)">
+      <label for="status" class="block text-sm font-medium text-gray-600">Chọn trạng thái</label>
+      <select [(ngModel)]="selectedOrder.status" name="status" id="status" class="mt-2 block w-full p-2 border border-gray-300 rounded-md">
+        <option *ngFor="let status of availableStatuses" [value]="status">{{ status }}</option>
+      </select>
+      <button type="submit" class="mt-4 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-500 transition">
+        Cập nhật trạng thái
+      </button>
+    </form>
+    <button (click)="goBackToDetails()" class="mt-4 px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-500 transition">
+      Quay lại chi tiết
+    </button>
+  </div>
+</div>

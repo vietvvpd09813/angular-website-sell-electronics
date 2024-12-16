@@ -16,15 +16,15 @@ declare function loginaaa(): void;
 })
 export class LoginComponent implements OnInit {
   ngOnInit(): void {
-    loginaaa(); // Có thể dùng để thực thi một hàm JavaScript riêng ngoài Angular
+    loginaaa();
   }
 
   // Form group để quản lý form đăng nhập
   formLoginGroup: FormGroup = new FormGroup({
     emailControl: new FormControl(null, [
       Validators.required, // Email là bắt buộc
-      Validators.email,    // Kiểm tra định dạng email
-      Validators.minLength(5), // Đảm bảo email có ít nhất 5 ký tự
+      Validators.email,
+      Validators.minLength(5),
     ]),
     passwordControl: new FormControl(null, [
       Validators.required,  // Mật khẩu là bắt buộc
@@ -32,23 +32,23 @@ export class LoginComponent implements OnInit {
     ]),
   });
 
-  // Form group để quản lý form đăng ký (với các trường đã được thêm số "1")
+
   formRegisterGroup: FormGroup = new FormGroup({
     emailControl1: new FormControl(null, [
-      Validators.required, // Email là bắt buộc
-      Validators.email,    // Kiểm tra định dạng email
+      Validators.required,
+      Validators.email,
     ]),
     usernameControl1: new FormControl(null, [
-      Validators.required,  // Tên người dùng là bắt buộc
-      Validators.minLength(3), // Tên người dùng phải có ít nhất 3 ký tự
+      Validators.required,
+      Validators.minLength(3),
     ]),
     passwordControl1: new FormControl(null, [
-      Validators.required, // Mật khẩu là bắt buộc
-      Validators.minLength(6), // Mật khẩu phải có ít nhất 6 ký tự
+      Validators.required,
+      Validators.minLength(6),
     ]),
     confirmPasswordControl1: new FormControl(null, [
-      Validators.required, // Xác nhận mật khẩu là bắt buộc
-      Validators.minLength(6), // Mật khẩu phải có ít nhất 6 ký tự
+      Validators.required,
+      Validators.minLength(6),
     ]),
   });
 

@@ -3,13 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CategoriesService {
-
   private apiUrl = 'http://localhost:3001/v1/api/admin/categories';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   // Lấy tất cả danh mục
   getAllCategories(): Observable<any> {
@@ -25,7 +24,7 @@ export class CategoriesService {
   addCategory(name: string, image: string): Observable<any> {
     const categoryData = {
       name: name,
-      image: image
+      image: image,
     };
 
     return this.http.post<any>(this.apiUrl, categoryData);
@@ -35,7 +34,7 @@ export class CategoriesService {
   updateCategory(id: number, name: string, image: string): Observable<any> {
     const categoryData = {
       name: name,
-      image: image
+      image: image,
     };
 
     return this.http.put<any>(`${this.apiUrl}/${id}`, categoryData);

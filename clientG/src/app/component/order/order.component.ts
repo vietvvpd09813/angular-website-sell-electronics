@@ -1,37 +1,103 @@
+import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { OrderService } from '../../sevice/order.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-order',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink, FormsModule],
   templateUrl: './order.component.html',
-  styleUrl: './order.component.css'
+  styleUrls: ['./order.component.css'],
 })
-export class OrderComponent {
-  orderNumber = '#10234987';
-  products = [
-    {
-      name: 'iphone 11',
-      brand: 'ip',
-      size: 'pro',
-      quantity: 1,
-      price: 20.00,
-      status: 'Sẵn sàng giao hàng',
-      deliveryDate: '23 tháng 3, 2024',
-      imageUrl: 'data:image/jpeg;base64,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'
-    },
-    {
-      name: '',
-      brand: 'ip',
-      size: 'promax',
-      quantity: 2,
-      price: 40.00,
-      status: 'Đã giao',
-      deliveryDate: '23 tháng 3, 2024',
-      imageUrl: 'data:image/jpeg;base64,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'
+export class OrderComponent implements OnInit {
+  userId: number = 0;
+  orders: any[] = [];  // Mảng lưu các đơn hàng
+
+  constructor(private orderService: OrderService) {}
+
+  ngOnInit(): void {
+    this.loadUserId(); // Tải ID người dùng từ localStorage
+    if (this.userId) {
+      this.getOrders(); // Lấy các đơn hàng của người dùng
     }
-  ];
-  products1 = this.products;
-  
+  }
+
+  // Lấy userId từ localStorage
+  loadUserId(): void {
+    const storedUserId = localStorage.getItem('userId');
+    if (storedUserId) {
+      const parsedUserId = parseInt(storedUserId, 10);
+      if (!isNaN(parsedUserId)) {
+        this.userId = parsedUserId;
+      } else {
+        console.error('ID người dùng không hợp lệ!');
+      }
+    } else {
+      console.error('Không tìm thấy ID người dùng trong localStorage!');
+    }
+  }
+
+  // Lấy đơn hàng của người dùng từ API
+  getOrders(): void {
+    this.orderService.getOrdersByUserId(this.userId).subscribe(
+      (data) => {
+        this.orders = data.orders; // Lưu thông tin đơn hàng
+
+        // Thêm thuộc tính showDetails cho mỗi đơn hàng để điều khiển việc ẩn/hiện
+        this.orders.forEach(order => {
+          order.showDetails = false; // Mặc định chi tiết đơn hàng ẩn
+        });
+      },
+      (error) => {
+        console.error('Có lỗi xảy ra khi lấy đơn hàng:', error);
+      }
+    );
+  }
+
+  // Hàm điều khiển việc ẩn/hiện chi tiết đơn hàng
+  toggleDetails(orderId: number): void {
+    const order = this.orders.find(o => o.id === orderId);
+    if (order) {
+      order.showDetails = !order.showDetails;
+    }
+  }
+
+  // Kiểm tra trạng thái đơn hàng trước khi huỷ
+  isCancelable(status: string): boolean {
+    const nonCancelableStatuses = [
+      "Đã xác nhận",
+      "Đang vận chuyển",
+      "Đang giao hàng",
+      "Đã giao",
+      "Đã hoàn thành"
+    ];
+    return !nonCancelableStatuses.includes(status);
+  }
+
+  // Xác nhận huỷ đơn hàng
+  confirmCancelOrder(orderId: number, status: string): void {
+    if (this.isCancelable(status)) {
+      const confirmCancel = window.confirm("Bạn có chắc chắn muốn huỷ đơn hàng này?");
+      if (confirmCancel) {
+        this.cancelOrder(orderId);
+      }
+    } else {
+      alert("Đơn hàng không thể huỷ vì trạng thái hiện tại.");
+    }
+  }
+
+  // Huỷ đơn hàng
+  cancelOrder(orderId: number): void {
+    this.orderService.updateOrderStatus(orderId, 'Đã hủy đơn').subscribe(
+      (response) => {
+        console.log('Đơn hàng đã được huỷ');
+        this.getOrders(); // Tải lại danh sách đơn hàng sau khi huỷ
+      },
+      (error) => {
+        console.error('Lỗi khi huỷ đơn hàng:', error);
+      }
+    );
+  }
 }

@@ -7,18 +7,18 @@ import { Observable } from 'rxjs';
 })
 export class CartService {
 
-  private apiUrl = 'http://localhost:3001/v1/api/admin/cart';  // URL của API Cart bên server
+  private apiUrl = 'http://localhost:3001/v1/api/admin/cart';
 
   constructor(private http: HttpClient) { }
 
   // Lấy tất cả sản phẩm trong giỏ hàng của người dùng
   getCartItems(userId: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${userId}`);  // Đảm bảo rằng API của server nhận được userId từ URL
+    return this.http.get<any>(`${this.apiUrl}/${userId}`);
   }
 
   // Lấy giỏ hàng theo productId và userId
   getCartByProductId(userId: number, productId: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${userId}`);  // API findById
+    return this.http.get<any>(`${this.apiUrl}/${userId}`);
   }
 
   // Thêm sản phẩm vào giỏ hàng
@@ -28,22 +28,22 @@ export class CartService {
       productId: productId,
       quantity: quantity
     };
-    return this.http.post<any>(`${this.apiUrl}`, cartData);  // Sử dụng POST cho endpoint create
+    return this.http.post<any>(`${this.apiUrl}`, cartData);
   }
 
-  // Cập nhật số lượng sản phẩm trong giỏ hàng
-  updateCartItem(userId: number, productId: number, quantity: number): Observable<any> {
-    const cartData = { quantity: quantity };
-    return this.http.put<any>(`${this.apiUrl}/${productId}`, cartData);  // API update
+
+  updateCartItem(id: number, quantity: number): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/${id}`, {quantity});
   }
+
 
   // Xóa sản phẩm khỏi giỏ hàng
   removeFromCart(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/${id}`);  // API deleteCart
+    return this.http.delete<any>(`${this.apiUrl}/${id}`);
   }
 
-  // Xóa tất cả sản phẩm trong giỏ hàng của người dùng
+
   clearCart(userId: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/clear/${userId}`);  // API deleteCart (clear toàn bộ giỏ)
+    return this.http.delete<any>(`${this.apiUrl}/deleteAll/${userId}`);
   }
 }

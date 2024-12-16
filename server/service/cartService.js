@@ -65,11 +65,11 @@ const getCart = async (productId, userId) => {
     }
   };
 
-const updateCart = async (userId, id,quantity) => {
+const updateCart = async ( {id,quantity}) => {
     try {
         const updateCart = await Cart.update(
             { quantity }, // Giá trị cần cập nhật
-            { where: { userId, id } } // Điều kiện
+            { where: { id } } // Điều kiện
           );        
           return updateCart;
     } catch (error) {
@@ -77,6 +77,23 @@ const updateCart = async (userId, id,quantity) => {
       throw error;
     }
 }
+const deleteAllCarts = async (userId) => {
+  try {
+    // Xóa tất cả dữ liệu trong bảng Cart của người dùng
+    const deletedCarts = await Cart.destroy({
+      where: { userId }, // Chỉ xóa giỏ hàng của người dùng có userId
+    });
+
+    // Log số lượng giỏ hàng đã xóa
+    console.log("deletedCarts", deletedCarts);
+
+    // Trả về số lượng giỏ hàng đã xóa
+    return deletedCarts;
+  } catch (error) {
+    console.error("Error deleting all carts:", error);
+    throw error;  // Ném lỗi ra ngoài để có thể xử lý trong hàm gọi
+  }
+};
 
 const deleteCart = async (id) => {
     try {
@@ -94,4 +111,5 @@ module.exports = {
     getCart,
     updateCart,
     deleteCart,
+    deleteAllCarts
 }

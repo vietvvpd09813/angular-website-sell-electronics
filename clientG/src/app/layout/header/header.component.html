@@ -1,14 +1,61 @@
-<!-- <input type="submit" name="sign-in" value="Login" class="btn"  > -->
+<header class='shadow-md bg-white font-[sans-serif] tracking-wide relative z-50'>
+  <section
+    class='flex items-center flex-wrap lg:justify-center gap-4 py-2.5 sm:px-10 px-4 border-gray-200 border-b min-h-[70px]'>
 
-<header class='flex shadow-lg py-4 px-4 sm:px-10 bg-white font-[sans-serif] min-h-[70px] tracking-wide relative z-50'>
-  <div class='w-full flex flex-wrap items-center lg:gap-y-4 gap-y-6 gap-x-4'>
-    <a outerLink="/home"><img src="https://phuongnamvina.com/img_data/images/lam-logo-ban-hang-online-dep.jpg" alt="logo" class='w-36' />
+    <div class='left-10 absolute z-50 bg-gray-100 flex items-center px-4 py-2.5 rounded max-lg:hidden'>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.904 192.904"
+        class="cursor-pointer fill-gray-400 mr-2.5 inline-block w-[18px] h-[18px]">
+        <path
+          d="m190.707 180.101-47.078-47.077c11.702-14.072 18.752-32.142 18.752-51.831C162.381 36.423 125.959 0 81.191 0 36.422 0 0 36.423 0 81.193c0 44.767 36.422 81.187 81.191 81.187 19.688 0 37.759-7.049 51.831-18.751l47.079 47.078a7.474 7.474 0 0 0 5.303 2.197 7.498 7.498 0 0 0 5.303-12.803zM15 81.193C15 44.694 44.693 15 81.191 15c36.497 0 66.189 29.694 66.189 66.193 0 36.496-29.692 66.187-66.189 66.187C44.693 147.38 15 117.689 15 81.193z">
+        </path>
+      </svg>
+      <input type='text' placeholder='Search...' class="outline-none bg-transparent w-full text-sm" />
+    </div>
+
+    <a href="javascript:void(0)" class="shrink-0"><img src="data:image/jpeg;base64,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" alt="logo"
+      class='w-36' />
     </a>
 
+    <div class="lg:absolute lg:right-10 flex items-center ml-auto space-x-8">
+      <!-- Tên người dùng -->
+      <div class="inline-block cursor-pointer border-gray-300">
+        <span class="username hover:text-[#007bff] font-semibold text-lg transition-all duration-300">
+          {{username}}
+        </span>
+      </div>
+
+      <!-- Đơn hàng -->
+      <a routerLink="/order">
+        <span class="relative">
+          <!-- Biểu tượng giỏ hàng (order) -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="20px" class="cursor-pointer fill-gray-800 hover:fill-[#007bff] inline-block" viewBox="0 0 24 24">
+            <path d="M7 4h14l-1.43 9H8.43L7 4zM8.21 15.03c.15.56.69.97 1.28.97h10.01c.59 0 1.13-.41 1.28-.97l.86-3.19H7.35l.86 3.19zM4 2h2l2 5h12l2-5h2v2h-2l-2 5h-12l-2-5H4V2z"/>
+          </svg>
+          <!-- Badge hiển thị số lượng -->
+          <span class="absolute left-auto -ml-1 top-0 rounded-full bg-blue-600 px-1 py-0 text-xs text-white">1</span>
+        </span>
+      </a>
+
+
+      <!-- Giỏ hàng -->
+      <a routerLink="/cart">
+        <span class="relative">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" class="cursor-pointer fill-gray-800 hover:fill-[#007bff] inline-block" viewBox="0 0 512 512">
+            <path d="M164.96 300.004h.024c.02 0 .04-.004.059-.004H437a15.003 15.003 0 0 0 14.422-10.879l60-210a15.003 15.003 0 0 0-2.445-13.152A15.006 15.006 0 0 0 497 60H130.367l-10.722-48.254A15.003 15.003 0 0 0 105 0H15C6.715 0 0 6.715 0 15s6.715 15 15 15h77.969c1.898 8.55 51.312 230.918 54.156 243.71C131.184 280.64 120 296.536 120 315c0 24.812 20.188 45 45 45h272c8.285 0 15-6.715 15-15s-6.715-15-15-15H165c-8.27 0-15-6.73-15-15 0-8.258 6.707-14.977 14.96-14.996zM477.114 90l-51.43 180H177.032l-40-180zM150 405c0 24.813 20.188 45 45 45s45-20.188 45-45-20.188-45-45-45-45 20.188-45 45zm45-15c8.27 0 15 6.73 15 15s-6.73 15-15 15-15-6.73-15-15 6.73-15 15-15zm167 15c0 24.813 20.188 45 45 45s45-20.188 45-45-20.188-45-45-45-45 20.188-45 45zm45-15c8.27 0 15 6.73 15 15s-6.73 15-15 15-15-6.73-15-15 6.73-15 15-15zm0 0"></path>
+          </svg>
+          <span class="absolute left-auto -ml-1 top-0 rounded-full bg-blue-600 px-1 py-0 text-xs text-white">4</span>
+        </span>
+      </a>
+    </div>
+
+  </section>
+
+  <div class='flex flex-wrap justify-center px-10 py-3 relative'>
+
     <div id="collapseMenu"
-      class="max-lg:hidden lg:!flex lg:items-center lg:flex-1 max-lg:before:fixed max-lg:before:bg-black max-lg:before:opacity-40 max-lg:before:inset-0 max-lg:before:z-50">
-      <button id="toggleClose" class='lg:hidden fixed top-2 right-4 z-[100] rounded-full bg-white p-3'>
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 fill-black" viewBox="0 0 320.591 320.591">
+      class='max-lg:hidden lg:!block max-lg:before:fixed max-lg:before:bg-black max-lg:before:opacity-40 max-lg:before:inset-0 max-lg:before:z-50'>
+      <button id="toggleClose" class='lg:hidden fixed top-2 right-4 z-[100] rounded-full bg-white w-9 h-9 flex items-center justify-center border'>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 fill-black" viewBox="0 0 320.591 320.591">
           <path
             d="M30.391 318.583a30.37 30.37 0 0 1-21.56-7.288c-11.774-11.844-11.774-30.973 0-42.817L266.643 10.665c12.246-11.459 31.462-10.822 42.921 1.424 10.362 11.074 10.966 28.095 1.414 39.875L51.647 311.295a30.366 30.366 0 0 1-21.256 7.288z"
             data-original="#000000"></path>
@@ -19,110 +66,113 @@
       </button>
 
       <ul
-        class='lg:ml-14 lg:flex lg:gap-x-8 max-lg:space-y-3 max-lg:fixed max-lg:bg-white max-lg:w-2/3 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:px-10 max-lg:py-4 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50'>
-        <li class='mb-6 hidden max-lg:block'>
+        class='lg:flex lg:gap-x-10 max-lg:space-y-3 max-lg:fixed max-lg:bg-white max-lg:w-2/3 max-lg:min-w-[280px] max-lg:top-0 max-lg:left-0 max-lg:p-4 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50'>
+        <li class='max-lg:border-b max-lg:pb-4 px-3 lg:hidden'>
           <a href="javascript:void(0)"><img src="https://readymadeui.com/readymadeui.svg" alt="logo" class='w-36' />
           </a>
         </li>
-        <li
-          class='max-lg:border-b max-lg:py-3 relative lg:after:absolute lg:after:bg-pink-500 lg:after:w-full lg:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300'>
-          <a routerLink="/home" class='text-[#333] block text-sm font-semibold'>TRANG CHỦ</a>
+        <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'>
+          <a routerLink="/" class='hover:text-[#007bff] text-[#007bff] font-semibold block text-[15px]'>Home</a>
         </li>
 
-        <li
-          class='max-lg:border-b max-lg:py-3 relative lg:hover:after:absolute lg:after:bg-pink-500 lg:after:w-0 lg:hover:after:w-full lg:hover:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300'>
-          <a  routerLink="/products" class='text-[#333] block text-sm font-semibold'>SẢN PHẨM</a>
+        <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'>
+          <a routerLink="/products" class='hover:text-[#007bff] text-gray-800 font-semibold text-[15px] block'>Sản phẩm</a>
         </li>
-        <li
-          class='max-lg:border-b max-lg:py-3 relative lg:hover:after:absolute lg:after:bg-pink-500 lg:after:w-0 lg:hover:after:w-full lg:hover:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300'>
-          <a routerLink="/home" class='text-[#333] block text-sm font-semibold'>CỬA HÀNG</a>
+
+        <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'>
+          <a href='javascript:void(0)' class='hover:text-[#007bff] text-gray-800 font-semibold text-[15px] block'>Tin tức</a>
         </li>
-        <li
-          class='max-lg:border-b max-lg:py-3 relative lg:hover:after:absolute lg:after:bg-pink-500 lg:after:w-0 lg:hover:after:w-full lg:hover:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300'>
-          <a routerLink="/home" class='text-[#333] block text-sm font-semibold'>BÀI VIẾT</a>
+
+        <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'>
+          <a href='javascript:void(0)' class='hover:text-[#007bff] text-gray-800 font-semibold text-[15px] block'>Liên hệ</a>
         </li>
-        <li
-          class='max-lg:border-b max-lg:py-3 relative lg:hover:after:absolute lg:after:bg-pink-500 lg:after:w-0 lg:hover:after:w-full lg:hover:after:h-[3px] lg:after:block lg:after:-bottom-2 lg:after:transition-all lg:after:duration-300'>
-          <a routerLink="/home" class='text-[#333] block text-sm font-semibold'>LIÊN HỆ</a>
+
+        <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'>
+          <a href='javascript:void(0)' class='hover:text-[#007bff] text-gray-800 font-semibold text-[15px] block'>Chi nhánh</a>
         </li>
+
+        <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'>
+          <a href='javascript:void(0)' class='hover:text-[#007bff] text-gray-800 font-semibold text-[15px] block'>Bảo hành</a>
+        </li>
+
+        <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'>
+          <a href='javascript:void(0)' class='hover:text-[#007bff] text-gray-800 font-semibold text-[15px] block'>Khuyến mãi</a>
+        </li>
+
+
+
+
+
+
+
+          <li class='group max-lg:border-b max-lg:px-3 max-lg:py-3 relative'>
+            <a href='javascript:void(0)'
+              class='hover:text-[#007bff] hover:fill-[#007bff] text-gray-800 text-[15px] flex items-center'>Thao tác<svg
+                xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" class="ml-1 inline-block"
+                viewBox="0 0 24 24">
+                <path
+                  d="M12 16a1 1 0 0 1-.71-.29l-6-6a1 1 0 0 1 1.42-1.42l5.29 5.3 5.29-5.29a1 1 0 0 1 1.41 1.41l-6 6a1 1 0 0 1-.7.29z"
+                  data-name="16" data-original="#000000" />
+              </svg>
+            </a>
+            <ul
+              class='absolute top-5 max-lg:top-8 left-0 z-50 block space-y-2 shadow-lg bg-white max-h-0 overflow-hidden min-w-[230px] group-hover:opacity-100 group-hover:max-h-[700px] px-6 group-hover:pb-4 group-hover:pt-6 transition-all duration-[400ms]'>
+              <li class='border-b py-3'>
+                <a routerLink="/login"
+                  class='hover:text-[#007bff] hover:fill-[#007bff] text-gray-800 text-[15px] flex items-center'>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" class="mr-4 inline-block"
+                    viewBox="0 0 24 24">
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                    <path
+                      d="M14 10l-4-4-4 4h8z"/>
+                  </svg>
+                  Đăng nhập
+                </a>
+              </li>
+              <li class='border-b py-3'>
+                <a (click)="logout()"
+                  class='hover:text-[#007bff] hover:fill-[#007bff] text-gray-800 text-[15px] flex items-center'>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" class="mr-4 inline-block"
+                    viewBox="0 0 24 24">
+                    <path
+                      d="M16 13h-4V6H9v7H5l7 7 7-7h-4z"/>
+                  </svg>
+                  Đăng xuất
+                </a>
+              </li>
+
+              <li class='border-b py-3'>
+                <a routerLink="/admin/"
+                  class='hover:text-[#007bff] hover:fill-[#007bff] text-gray-800 text-[15px] flex items-center'>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" class="mr-4 inline-block"
+                    viewBox="0 0 24 24">
+                    <path d="M19.14,12.94c0.05-0.32,0.1-0.64,0.1-0.94s-0.05-0.62-0.1-0.94l2.07-1.61c0.18-0.14,0.23-0.38,0.15-0.58l-1.99-3.43c-0.08-0.2-0.28-0.27-0.48-0.2l-2.49,1.09c-0.5-0.39-1.04-0.73-1.61-1.03l-0.38-2.78c-0.05-0.22-0.22-0.38-0.44-0.38h-3c-0.22,0-0.39,0.16-0.44,0.38l-0.38,2.78c-0.57,0.3-1.11,0.64-1.61,1.03l-2.49-1.09c-0.2-0.07-0.4,0-0.48,0.2l-1.99,3.43c-0.08,0.2-0.03,0.44,0.15,0.58l2.07,1.61c-0.05,0.32-0.1,0.64-0.1,0.94s0.05,0.62,0.1,0.94l-2.07,1.61c-0.18,0.14-0.23,0.38-0.15,0.58l1.99,3.43c0.08,0.2,0.28,0.27,0.48,0.2l2.49-1.09c0.5,0.39,1.04,0.73,1.61,1.03l0.38,2.78c0.05,0.22,0.22,0.38,0.44,0.38h3c0.22,0,0.39-0.16,0.44-0.38l0.38-2.78c0.57-0.3,1.11-0.64,1.61-1.03l2.49,1.09c0.2,0.07,0.4,0,0.48-0.2l1.99-3.43c0.08-0.2,0.03-0.44-0.15-0.58l-2.07-1.61c0.05-0.32,0.1-0.64,0.1-0.94zM12,16.5c-2.47,0-4.5-2.03-4.5-4.5s2.03-4.5,4.5-4.5s4.5,2.03,4.5,4.5s-2.03,4.5-4.5,4.5z"/>
+                  </svg>
+                  Quản lý
+                </a>
+              </li>
+
+
+              <!-- <li class='border-b py-3'>
+                <a href='javascript:void(0)'
+                  class='hover:text-[#007bff] hover:fill-[#007bff] text-gray-800 text-[15px] flex items-center'>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" class="mr-4 inline-block"
+                    viewBox="0 0 512 512">
+                    <path
+                      d="M434.1 243.904h-5.955a95.572 95.572 0 0 1-61.022-22.072l-117.812-98.055a49.716 49.716 0 0 0-31.743-11.481c-27.361 0-49.621 22.26-49.621 49.621v11.586c0 22.572-18.364 40.937-40.937 40.937-15.844 0-30.407-9.279-37.102-23.639l-3.261-6.995c-7.434-15.944-23.604-26.246-41.195-26.246C20.39 157.56 0 177.949 0 203.012v118.792c0 42.954 34.946 77.9 77.9 77.9h356.2c42.954 0 77.9-34.946 77.9-77.9 0-42.954-34.946-77.9-77.9-77.9zm0 125.8H77.9c-17.829 0-33.403-9.799-41.65-24.287h439.5c-8.247 14.488-23.821 24.287-41.65 24.287zM30 315.419V203.012c0-8.521 6.932-15.452 15.452-15.452 5.98 0 11.478 3.503 14.005 8.923l3.261 6.994c11.601 24.884 36.837 40.963 64.293 40.963 39.115 0 70.937-31.822 70.937-70.937v-11.586c0-10.819 8.802-19.621 19.621-19.621a19.66 19.66 0 0 1 12.552 4.54l28.901 24.055-32.93 32.93 21.213 21.213 34.872-34.871 13.031 10.846-31.444 31.444 21.213 21.213 33.386-33.385 13.031 10.846-29.958 29.958 21.213 21.213 32.115-32.115c21.284 15.35 47.024 23.723 73.383 23.723h5.955c24.246 0 44.328 18.112 47.461 41.513H30z"
+                      data-original="#000000" />
+                  </svg>
+                  Shoes Store
+                </a>
+              </li> -->
+            </ul>
+          </li>
       </ul>
-
-      <div class='lg:mx-8 max-xl:hidden flex items-center bg-gray-100 px-4 h-10 rounded flex-1'>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.904 192.904" width="18px"
-          class="cursor-pointer fill-gray-500 mr-4 rotate-90 inline-block">
-          <path
-            d="m190.707 180.101-47.078-47.077c11.702-14.072 18.752-32.142 18.752-51.831C162.381 36.423 125.959 0 81.191 0 36.422 0 0 36.423 0 81.193c0 44.767 36.422 81.187 81.191 81.187 19.688 0 37.759-7.049 51.831-18.751l47.079 47.078a7.474 7.474 0 0 0 5.303 2.197 7.498 7.498 0 0 0 5.303-12.803zM15 81.193C15 44.694 44.693 15 81.191 15c36.497 0 66.189 29.694 66.189 66.193 0 36.496-29.692 66.187-66.189 66.187C44.693 147.38 15 117.689 15 81.193z">
-          </path>
-        </svg>
-        <input type='text' placeholder='Search something...' class='w-full outline-none text-sm bg-transparent' />
-      </div>
     </div>
 
-    <div class='flex items-center ml-auto'>
-      <ul class="flex space-x-4">
-        <li id="none1"
-          class="relative px-1 after:absolute after:bg-pink-500 after:w-full after:h-[3px] after:block after:-bottom-2 after:left-0 after:transition-all after:duration-300">
-          <div class="flex flex-col justify-center items-center cursor-pointer" >
-            <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 512 512">
-              <path
-                d="M337.711 241.3a16 16 0 0 0-11.461 3.988c-18.739 16.561-43.688 25.682-70.25 25.682s-51.511-9.121-70.25-25.683a16.007 16.007 0 0 0-11.461-3.988c-78.926 4.274-140.752 63.672-140.752 135.224v107.152C33.537 499.293 46.9 512 63.332 512h385.336c16.429 0 29.8-12.707 29.8-28.325V376.523c-.005-71.552-61.831-130.95-140.757-135.223zM446.463 480H65.537V376.523c0-52.739 45.359-96.888 104.351-102.8C193.75 292.63 224.055 302.97 256 302.97s62.25-10.34 86.112-29.245c58.992 5.91 104.351 50.059 104.351 102.8zM256 234.375a117.188 117.188 0 1 0-117.188-117.187A117.32 117.32 0 0 0 256 234.375zM256 32a85.188 85.188 0 1 1-85.188 85.188A85.284 85.284 0 0 1 256 32z"
-                data-original="#000000" />
-            </svg>
-            <span class="text-xs font-semibold mt-1">Profile</span>
-          </div>
-          <div id="block1"
-            class="bg-white z-20 shadow-lg py-6 px-6 sm:min-w-[320px] max-sm:min-w-[250px] max-sm:-right-32 absolute right-0 top-14">
-            <h6 class="font-semibold text-sm">Welcome</h6>
-            <p class="text-sm text-gray-500 mt-1">To access account and manage orders</p>
-          <a routerLink="/login">  <button type='submit'
-            class="bg-transparent border border-gray-300 hover:border-pink-500 px-4 py-2 mt-4 text-sm text-pink-500 font-semibold">LOGIN
-            / SIGNUP</button></a>
-            <hr class="border-b-0 my-4" />
-            <ul class="space-y-1.5">
-              <li><a routerLink="/order" class="text-sm text-gray-500 hover:text-pink-500">Order</a></li>
-              <li><a routerLink="/admin" class="text-sm text-gray-500 hover:text-pink-500">Admin</a></li>
-              <li><a routerLink="/home" class="text-sm text-gray-500 hover:text-pink-500">Gift Cards</a></li>
-              <li><a routerLink="/home" class="text-sm text-gray-500 hover:text-pink-500">Contact Us</a></li>
-            </ul>
-            <hr class="border-b-0 my-4" />
-            <ul class="space-y-1.5">
-              <li><a routerLink="/home" class="text-sm text-gray-500 hover:text-pink-500">Coupons</a></li>
-              <li><a routerLink="/home" class="text-sm text-gray-500 hover:text-pink-500">Saved Credits</a></li>
-              <li><a routerLink="/home" class="text-sm text-gray-500 hover:text-pink-500">Contact Us</a></li>
-              <li><a  class="text-sm text-gray-500 hover:text-pink-500">Log out</a>
-              </li>
-            </ul>
-          </div>
-        </li>
-
-
-        <li
-          class="relative px-1 after:absolute after:bg-pink-500 after:w-0 hover:after:w-full hover:after:h-[3px] after:block after:-bottom-2 after:left-0 after:transition-all after:duration-300">
-          <a routerLink="/cart">
-            <div class="flex flex-col justify-center items-center cursor-pointer">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 489 489">
-                <path
-                  d="m440.1 422.7-28-315.3c-.6-7-6.5-12.3-13.4-12.3h-57.6C340.3 42.5 297.3 0 244.5 0s-95.8 42.5-96.6 95.1H90.3c-7 0-12.8 5.3-13.4 12.3l-28 315.3c0 .4-.1.8-.1 1.2 0 35.9 32.9 65.1 73.4 65.1h244.6c40.5 0 73.4-29.2 73.4-65.1 0-.4 0-.8-.1-1.2zM244.5 27c37.9 0 68.8 30.4 69.6 68.1H174.9c.8-37.7 31.7-68.1 69.6-68.1zm122.3 435H122.2c-25.4 0-46-16.8-46.4-37.5l26.8-302.3h45.2v41c0 7.5 6 13.5 13.5 13.5s13.5-6 13.5-13.5v-41h139.3v41c0 7.5 6 13.5 13.5 13.5s13.5-6 13.5-13.5v-41h45.2l26.9 302.3c-.4 20.7-21.1 37.5-46.4 37.5z"
-                  data-original="#000000" />
-              </svg>
-              <span class="text-xs font-semibold mt-1">Bag</span>
-
-            </div>
-          </a>
-        </li>
-        <li class="relative px-1 after:absolute after:bg-pink-500 after:w-0 hover:after:w-full hover:after:h-[3px] after:block after:-bottom-2 after:left-0 after:transition-all after:duration-300">
-          <div class="flex flex-col justify-center items-center cursor-pointer">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 64 64">
-              <path
-                d="M45.5 4A18.53 18.53 0 0 0 32 9.86 18.5 18.5 0 0 0 0 22.5C0 40.92 29.71 59 31 59.71a2 2 0 0 0 2.06 0C34.29 59 64 40.92 64 22.5A18.52 18.52 0 0 0 45.5 4ZM32 55.64C26.83 52.34 4 36.92 4 22.5a14.5 14.5 0 0 1 26.36-8.33 2 2 0 0 0 3.27 0A14.5 14.5 0 0 1 60 22.5c0 14.41-22.83 29.83-28 33.14Z"
-                data-original="#000000"></path>
-            </svg>
-            <span (click)="logout()" class="text-xs font-semibold mt-1">logout</span>
-          </div>
-        </li>
-      </ul>
-
-      <button id="toggleOpen" class='lg:hidden ml-7'>
+    <div id="toggleOpen" class='flex ml-auto lg:hidden'>
+      <button>
         <svg class="w-7 h-7" fill="#000" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd"
             d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
@@ -132,5 +182,3 @@
     </div>
   </div>
 </header>
-
-

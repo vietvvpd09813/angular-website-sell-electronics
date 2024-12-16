@@ -1,79 +1,64 @@
-<section class="py-24 relative mx-10">
-  <div class="w-full max-w-7xl px-4 md:px-5 lg:px-6 mx-auto">
-    <div class="main-box border border-gray-200 rounded-xl pt-6 max-w-xl max-lg:mx-auto lg:max-w-full">
-      <div class="flex flex-col lg:flex-row lg:items-center justify-between px-6 pb-6 border-b border-gray-200">
-        <div class="data">
-          <p class="font-semibold text-base leading-7 text-black">
-            Mã đơn hàng: <span class="text-indigo-600 font-medium">{{ orderNumber }}</span>
-          </p>
-        </div>
-      </div>
+<div *ngFor="let order of orders" class="order-item">
+  <section class="py-4 mx-1">
+    <div class="w-full max-w-20xl px-4 md:px-5 lg:px-6 mx-auto">
+      <div class="border border-gray-300 rounded-xl p-8 shadow-lg max-w-2xl mx-auto bg-white">
 
-      <div class="w-full px-3">
-        <ng-container *ngFor="let product of products1">
-          <div class="flex flex-col lg:flex-row items-center py-6 border-b border-gray-200 gap-6 w-full">
-            <div class="img-box max-lg:w-full">
-              <img [src]="product.imageUrl" [alt]="product.name" class="aspect-square w-full lg:max-w-[140px] rounded-xl object-cover" />
-            </div>
-            <div class="flex flex-row items-center w-full">
-              <div class="grid grid-cols-1 lg:grid-cols-2 w-full">
-                <div class="flex items-center">
-                  <div>
-                    <h2 class="font-semibold text-xl leading-8 text-black mb-3">{{ product.name }}</h2>
-                    <p class="font-normal text-lg leading-8 text-gray-500 mb-3">Thương hiệu: {{ product.brand }}</p>
-                    <div class="flex items-center">
-                      <p class="font-medium text-base leading-7 text-black pr-4 mr-4 border-r border-gray-200">
-                        Kích thước: <span class="text-gray-500">{{ product.size }}</span>
-                      </p>
-                      <p class="font-medium text-base leading-7 text-black">
-                        Số lượng: <span class="text-gray-500">{{ product.quantity }}</span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="grid grid-cols-5">
-                  <div class="col-span-5 lg:col-span-1 flex items-center max-lg:mt-3">
-                    <div class="flex gap-3 lg:block">
-                      <p class="font-medium text-sm leading-7 text-black">Giá</p>
-                      <p class="lg:mt-4 font-medium text-sm leading-7 text-indigo-600">${{ product.price.toFixed(2) }}</p>
-                    </div>
-                  </div>
-                  <div class="col-span-5 lg:col-span-2 flex items-center max-lg:mt-3">
-                    <div class="flex gap-3 lg:block">
-                      <p class="font-medium text-sm leading-7 text-black">Trạng thái</p>
-                      <p class="font-medium text-sm leading-6 whitespace-nowrap py-0.5 px-3 rounded-full lg:mt-3 bg-emerald-50 text-emerald-600">
-                        {{ product.status }}
-                      </p>
-                    </div>
-                  </div>
-                  <div class="col-span-5 lg:col-span-2 flex items-center max-lg:mt-3">
-                    <div class="flex gap-3 lg:block">
-                      <p class="font-medium text-sm whitespace-nowrap leading-6 text-black">Thời gian giao hàng dự kiến</p>
-                      <p class="font-medium text-base whitespace-nowrap leading-7 lg:mt-3 text-emerald-500">
-                        {{ product.deliveryDate }}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </ng-container>
-      </div>
+        <h2 class="font-bold text-3xl leading-8 text-black mb-6 text-center">Thông tin đơn hàng</h2>
 
-      <div class="w-full border-t border-gray-200 px-6 flex flex-col lg:flex-row items-center justify-between">
-        <div class="flex flex-col sm:flex-row items-center max-lg:border-b border-gray-200">
-          <button  class="flex outline-0 py-6 sm:pr-6 sm:border-r border-gray-200 whitespace-nowrap gap-2 items-center justify-center font-semibold group text-lg text-black bg-white transition-all duration-500 hover:text-indigo-600">
-            <svg class="stroke-black transition-all duration-500 group-hover:stroke-indigo-600" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-              <path d="M5.5 5.5L16.5 16.5M16.5 5.5L5.5 16.5" stroke="" strokeWidth="1.6" strokeLinecap="round" />
-            </svg>
-            Hủy đơn hàng
-          </button>
+        <div class="mb-6">
+          <p class="font-semibold text-lg text-black">Tên người đặt: <span class="text-gray-800">{{ order.fullname }}</span></p>
         </div>
-        <p class="font-semibold text-lg text-black py-6">
-          Tổng giá trị: <span class="text-indigo-600"></span>
-        </p>
+        <div class="mb-6">
+          <p class="font-semibold text-lg text-black">Địa chỉ: <span class="text-gray-800">{{ order.address }}</span></p>
+        </div>
+        <div class="mb-6">
+          <p class="font-semibold text-lg text-black">Số điện thoại: <span class="text-gray-800">{{ order.phone }}</span></p>
+        </div>
+        <div class="mb-6">
+          <p class="font-semibold text-lg text-black">Trạng thái: <span class="text-gray-800">{{ order.status }}</span></p>
+        </div>
+
+        <!-- Nút xem chi tiết -->
+        <button (click)="toggleDetails(order.id)" class="text-indigo-600 hover:text-indigo-800 py-2 px-4 mb-4">
+          {{ order.showDetails ? 'Ẩn chi tiết' : 'Xem chi tiết' }}
+        </button>
+
+        <!-- Chi tiết đơn hàng (ẩn/hiện) -->
+        <div *ngIf="order.showDetails" class="order-details-table">
+          <table class="min-w-full bg-white">
+            <thead>
+              <tr class="bg-gray-100">
+                <th class="py-2 px-4 border-b">Tên sản phẩm</th>
+                <th class="py-2 px-4 border-b">Số lượng</th>
+                <th class="py-2 px-4 border-b">Giá</th>
+                <th class="py-2 px-4 border-b">Tổng</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of order.orderItems">
+                <td class="py-2 px-4 border-b">{{ item.product.name }}</td>
+                <td class="py-2 px-4 border-b">{{ item.quantity }}</td>
+                <td class="py-2 px-4 border-b">{{ item.product.price | currency:'VND' }}</td>
+                <td class="py-2 px-4 border-b">{{ item.product.price * item.quantity | currency:'VND' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Nút huỷ đơn hàng -->
+        <button
+          *ngIf="isCancelable(order.status)"
+          (click)="confirmCancelOrder(order.id, order.status)"
+          class="text-red-600 hover:text-red-800 py-2 px-4 mt-4">
+          Huỷ đơn hàng
+        </button>
+        <button
+          *ngIf="!isCancelable(order.status)"
+          disabled
+          class="text-gray-500 py-2 px-4 mt-4 cursor-not-allowed">
+          Không thể huỷ
+        </button>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>

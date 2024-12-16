@@ -32,6 +32,10 @@ import { Loginlab48Component } from './admincomponent/loginlab48/loginlab48.comp
 import { Categori35Component } from './admincomponent/categori35/categori35.component';
 import { Createcategori35Component } from './admincomponent/createcategori35/createcategori35.component';
 import { Editcategori35Component } from './admincomponent/editcategori35/editcategori35.component';
+import { OrderDetailsComponent } from './admincomponent/order-details/order-details.component';
+import { OrderEditComponent } from './admincomponent/order-edit/order-edit.component';
+import { OrderdetailsComponent } from './component/orderdetails/orderdetails.component';
+
 
 const canlogin: CanActivateFn = (
   route: ActivatedRouteSnapshot,
@@ -57,6 +61,7 @@ export const routes: Routes = [
       { path: 'cart', component: CartComponent },
       { path: 'pay', component: PayComponent },
       { path: 'order', component: OrderComponent },
+      { path: 'order2', component: OrderdetailsComponent },
       { path: 'productnew', component: ProductnewComponent },
 
       { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -77,6 +82,8 @@ export const routes: Routes = [
       { path: 'adcategory', component: AdcategoryComponent },
 
       { path: 'adproduct', component: AdproductComponent },
+      { path: 'orderdetail/:id', component: OrderDetailsComponent },
+      { path: 'orderedit/:id', component: OrderEditComponent },
       { path: 'adcomment', component: AdcommentComponent },
       { path: 'adorder', component: AdorderComponent },
     ],

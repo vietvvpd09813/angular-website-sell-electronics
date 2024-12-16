@@ -9,7 +9,7 @@ const UserRoute = require("./user/apiUser");
 
 router.use("/admin", AdminRoute)
 router.use("/auth", AuthRoute)
-router.use("/user", UserRoute)
+
 
 
 module.exports = router

@@ -1,0 +1,77 @@
+<div class="w-[90%] mx-auto bg-white rounded-lg border p-6 my-4 mx-6 shadow-md">
+  <h3 class="font-bold text-xl text-gray-800 mb-4">Discussion</h3>
+
+  <!-- Display all reviews -->
+  <div *ngFor="let comment of comments" class="border-b pb-4 mb-4">
+    <div class="flex gap-3 items-center">
+      <img
+        src="https://avatars.githubusercontent.com/u/22263436?v=4"
+        class="object-cover w-10 h-10 rounded-full border-2 border-emerald-400 shadow-emerald-400"
+      />
+      <h1>{{ name11 }}</h1>
+      <!-- Hiển thị tên người dùng -->
+      <h3 class="font-bold text-gray-800">
+        {{ getUserNameById(comment.userId) }}
+      </h3>
+    </div>
+
+    <!-- Bình luận nếu không ở chế độ chỉnh sửa -->
+    <div *ngIf="!comment.editing">
+      <p class="text-gray-600 mt-2 text-base">{{ comment.text }}</p>
+      <p class="text-gray-500 text-sm mt-2">Rating: {{ comment.rating }} / 5</p>
+
+      <!-- Chỉ hiển thị nút "Edit" nếu userId của bình luận trùng với userId hiện tại -->
+      <button
+        *ngIf="comment.userId === userId"
+        (click)="editComment(comment)"
+        class="text-blue-500"
+      >
+        Edit
+      </button>
+    </div>
+
+    <!-- Form chỉnh sửa bình luận -->
+    <div *ngIf="comment.editing">
+      <textarea
+        [(ngModel)]="comment.text"
+        name="body"
+        placeholder="Edit Your Comment"
+        required
+        class="bg-gray-100 rounded-md border border-gray-300 leading-normal resize-none w-full h-20 py-2 px-3 font-medium text-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+      ></textarea>
+      <button
+        (click)="saveComment(comment)"
+        class="mt-2 px-4 py-2 bg-green-500 text-white rounded"
+      >
+        Save
+      </button>
+      <button
+        (click)="cancelEdit(comment)"
+        class="mt-2 px-4 py-2 bg-red-500 text-white rounded"
+      >
+        Cancel
+      </button>
+    </div>
+  </div>
+
+  <!-- Form to submit a new comment -->
+  <form (ngSubmit)="postComment()">
+    <div class="w-full mb-4">
+      <textarea
+        [(ngModel)]="newCommentText"
+        name="body"
+        placeholder="Type Your Comment"
+        required
+        class="bg-gray-100 rounded-md border border-gray-300 leading-normal resize-none w-full h-20 py-2 px-3 font-medium text-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+      ></textarea>
+    </div>
+
+    <div class="w-full flex justify-end px-3">
+      <input
+        type="submit"
+        class="px-4 py-2 rounded-md text-white text-sm bg-indigo-500 hover:bg-indigo-600 transition-all duration-300 cursor-pointer"
+        value="Post Comment"
+      />
+    </div>
+  </form>
+</div>

@@ -38,11 +38,11 @@ export class AdproductComponent implements OnInit {
           console.log('Sản phẩm đã được xoá:', response);
           alert('Sản phẩm đã được xoá thành công!');
 
-          // Gọi lại phương thức lấy lại danh sách sản phẩm sau khi xoá
-          this.getAllProducts();  // Lấy lại danh sách sản phẩm mới nhất từ server
 
-          // Nếu không có thay đổi UI sau khi gọi API, có thể sử dụng ChangeDetectorRef
-          this.cdr.detectChanges();  // Yêu cầu Angular kiểm tra lại thay đổi trong component
+          this.getAllProducts();
+
+
+          this.cdr.detectChanges();
         },
         (error) => {
           console.error('Có lỗi khi xoá sản phẩm:', error);

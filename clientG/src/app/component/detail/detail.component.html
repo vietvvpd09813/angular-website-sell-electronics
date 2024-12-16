@@ -67,12 +67,12 @@
         </div>
 
         <div class="flex flex-wrap gap-4 mt-8">
-          <!-- Nút "Thêm vào giỏ hàng" -->
+
           <button type="button" (click)="addToCart()" class="min-w-[200px] px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded">
             Add to cart
           </button>
 
-          <!-- Nút "Mua ngay" -->
+
           <a routerLink="/pay">
             <button type="button" class="min-w-[200px] px-4 py-3 bg-green-600 hover:bg-green-700 text-white text-sm font-semibold rounded">
               Mua ngay
@@ -83,7 +83,6 @@
     </div>
   </form>
 
-  <!-- Thông tin sản phẩm -->
   <div class="mt-16 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] p-6">
     <h3 class="text-xl font-bold text-gray-800">Product information</h3>
     <ul class="mt-4 space-y-6 text-gray-800">
@@ -102,3 +101,31 @@
     </ul>
   </div>
 </div>
+
+
+
+
+
+
+<div class="font-sans py-4 mx-auto lg:max-w-6xl md:max-w-4xl max-sm:max-w-md">
+
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-6 gap-12"
+  >
+
+  <app-detail-list *ngFor=" let item of filteredProductList"
+  [price]="item.price"
+  [id]="item.id"
+  [image1]="item.image1"
+  [name]="item.name">
+  ></app-detail-list>
+
+
+
+  </div>
+</div>
+<app-comment [productId]="productId"></app-comment>
+
+
+
+

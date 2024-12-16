@@ -63,7 +63,7 @@ export class EditcategoryComponent implements OnInit {
         (response) => {
           console.log('Danh mục đã được cập nhật:', response);
           alert('Danh mục đã được cập nhật thành công!');
-          this.router.navigate(['/categories']);  // Điều hướng về trang danh mục sau khi cập nhật thành công
+          this.router.navigate(['/admin/adcategory']);  // Điều hướng về trang danh mục sau khi cập nhật thành công
         },
         (error) => {
           console.error('Có lỗi khi cập nhật danh mục:', error);

@@ -23,10 +23,10 @@ export class CartComponent implements OnInit {
     const storedUserId = localStorage.getItem('userId');
 
     if (storedUserId) {
-      const parsedUserId = parseInt(storedUserId, 10);  // Chuyển đổi sang kiểu number
+      const parsedUserId = parseInt(storedUserId, 10);
       if (!isNaN(parsedUserId)) {
         this.userId = parsedUserId;
-        this.getCartItems();  // Gọi API sau khi đã chuyển đổi thành công
+        this.getCartItems();
       } else {
         console.error('ID người dùng không hợp lệ!');
       }
@@ -46,38 +46,71 @@ export class CartComponent implements OnInit {
     }
   }
 
-  // Hàm tính tổng số lượng sản phẩm trong giỏ hàng
+  // Tính tổng số lượng sản phẩm
   getTotalQuantity(): number {
     return this.cart.reduce((total, item) => total + (item.quantity || 0), 0);
   }
 
-  // Hàm tính tổng tiền của tất cả sản phẩm trong giỏ hàng
+  // Tính tổng tiền
   getTotalAmount(): number {
     return this.cart.reduce((total, item) => {
-      const itemPrice = item.product?.price || 0;  // Giá của sản phẩm
-      const itemQuantity = item.quantity || 0;  // Số lượng sản phẩm
-      return total + (itemPrice * itemQuantity);  // Tính tổng tiền
+      const itemPrice = item.product?.price || 0;
+      const itemQuantity = item.quantity || 0;
+      return total + (itemPrice * itemQuantity);
     }, 0);
   }
 
-  // Hàm xử lý xóa sản phẩm khỏi giỏ hàng
+  // Xóa sản phẩm khỏi giỏ
   removeFromCart(id: number): void {
     if (this.userId === null) {
       alert("Bạn cần đăng nhập để xóa sản phẩm khỏi giỏ hàng.");
       return;
     }
 
-    // Gọi API xóa sản phẩm
     this.cartService.removeFromCart(id).subscribe(
       (response) => {
-        // Sau khi xóa thành công, gọi lại giỏ hàng để cập nhật
-        this.getCartItems();
-        alert("Sản phẩm đã được xóa khỏi giỏ hàng thành công!");  // Thông báo thành công
+        this.getCartItems();  // Cập nhật giỏ hàng sau khi xóa sản phẩm
+        alert("Sản phẩm đã được xóa khỏi giỏ hàng thành công!");
       },
       (error) => {
         console.error('Lỗi khi xóa sản phẩm khỏi giỏ hàng:', error);
         alert("Lỗi khi xóa sản phẩm khỏi giỏ hàng. Vui lòng thử lại.");
       }
     );
+  }
+
+  // Tăng số lượng sản phẩm
+  increaseQuantity(id: number): void {
+    const item = this.cart.find(item => item.id === id);
+    if (item && item.quantity !== undefined) {
+      item.quantity++;
+      this.updateCartItem(id, item.quantity);
+    }
+  }
+
+  // Giảm số lượng sản phẩm
+  decreaseQuantity(id: number): void {
+    const item = this.cart.find(item => item.id === id);
+    if (item && item.quantity > 1) {  // Kiểm tra không cho giảm xuống dưới 1
+      item.quantity--;
+      this.updateCartItem(id, item.quantity);  // Gọi API để cập nhật giỏ hàng
+    }
+  }
+
+  // Cập nhật số lượng sản phẩm trong giỏ hàng
+  updateCartItem(id: number, quantity: number): void {
+    if (this.userId !== null) {
+      this.cartService.updateCartItem(id, quantity).subscribe(
+        (response) => {
+          console.log('success update');
+
+          this.getCartItems();  // Cập nhật lại giỏ hàng sau khi thay đổi số lượng
+        },
+        (error) => {
+          console.error('Lỗi khi cập nhật sản phẩm trong giỏ:', error);
+          alert("Lỗi khi cập nhật sản phẩm trong giỏ hàng. Vui lòng thử lại.");
+        }
+      );
+    }
   }
 }

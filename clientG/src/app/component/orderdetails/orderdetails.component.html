@@ -1,0 +1,59 @@
+<section class="py-24 relative mx-10">
+  <div class="w-full max-w-7xl px-4 md:px-5 lg:px-6 mx-auto">
+    <div class="main-box border border-gray-200 rounded-xl pt-6 max-w-full mx-auto bg-white shadow-lg">
+      <div class="flex flex-col lg:flex-row items-center justify-between px-6 pb-6 border-b border-gray-200">
+        <div class="data">
+          <p class="font-semibold text-base leading-7 text-black">
+            Mã đơn hàng: <span class="text-indigo-600 font-medium">#33334444</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="w-full px-3">
+        <ng-container>
+          <!-- Sản phẩm 1 -->
+          <div class="flex flex-col lg:flex-row items-center py-6 border-b border-gray-200 gap-6 w-full">
+            <div class="img-box max-lg:w-full">
+              <img src="https://cdn.tgdd.vn/Products/Images/42/329149/s16/iphone-16-pro-max-titan-den-thumbnew-650x650.png" class="aspect-square w-full lg:max-w-[140px] rounded-xl object-cover" />
+            </div>
+            <div class="flex flex-col w-full">
+              <h2 class="font-semibold text-xl leading-8 text-black mb-3">iPhone 11</h2>
+              <p class="font-medium text-lg leading-8 text-black mb-3">Giá: <span class="text-indigo-600">200 vnđ</span></p>
+              <p class="font-normal text-lg leading-8 text-gray-500 mb-3">Số lượng: <span class="text-gray-500">5</span></p>
+            </div>
+          </div>
+          <!-- Sản phẩm 2 -->
+          <div class="flex flex-col lg:flex-row items-center py-6 border-b border-gray-200 gap-6 w-full">
+            <div class="img-box max-lg:w-full">
+              <img src="https://cdn.tgdd.vn/Products/Images/42/329149/s16/iphone-16-pro-max-titan-den-thumbnew-650x650.png" class="aspect-square w-full lg:max-w-[140px] rounded-xl object-cover" />
+            </div>
+            <div class="flex flex-col w-full">
+              <h2 class="font-semibold text-xl leading-8 text-black mb-3">iPhone 12</h2>
+              <p class="font-medium text-lg leading-8 text-black mb-3">Giá: <span class="text-indigo-600">250 vnđ</span></p>
+              <p class="font-normal text-lg leading-8 text-gray-500 mb-3">Số lượng: <span class="text-gray-500">3</span></p>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="w-full border-t border-gray-200 px-6 pt-4 flex justify-between items-center">
+        <div class="flex space-x-4">
+          <button class="flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition duration-150">
+            <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            Hủy đơn hàng
+          </button>
+          <a
+            routerLink="/order"
+            class="mt-4 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition duration-150">
+            Quay lại
+          </a>
+        </div>
+        <p class="font-semibold text-lg text-black py-6">
+          Tổng giá trị: <span class="text-indigo-600">3000000 vnđ</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
